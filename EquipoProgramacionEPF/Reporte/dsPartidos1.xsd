@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPartidos1" targetNamespace="http://tempuri.org/dsPartidos1.xsd" xmlns:mstns="http://tempuri.org/dsPartidos1.xsd" xmlns="http://tempuri.org/dsPartidos1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ClubPrograIIOficialConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ClubPrograIIOficialConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.EquipoProgramacionEPF.Properties.Settings.GlobalReference.Default.ClubPrograIIOficialConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TablaPartidosTableAdapter" GeneratorDataComponentClassName="TablaPartidosTableAdapter" Name="TablaPartidos" UserDataComponentName="TablaPartidosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ClubPrograIIOficialConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select IdPartido, Fecha, c.NombreClub, ca.NombreClub,
+Goles_Local, Goles_Visitante, descripcion, p.id_temporada
+from partidos p join Clubes c on p.EquipoLocal = c.IDClub
+join Clubes ca on  p.Adversario = ca.IDClub
+join Temporadas t on id_temporada = p.id_temporada
+join torneos tor on tor.id_torneo = t.id_torneo
+where p.id_temporada = t.IDTemporada</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdPartido" DataSetColumn="IdPartido" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+              <Mapping SourceColumn="NombreClub" DataSetColumn="NombreClub" />
+              <Mapping SourceColumn="NombreClub1" DataSetColumn="NombreClub1" />
+              <Mapping SourceColumn="Goles_Local" DataSetColumn="Goles_Local" />
+              <Mapping SourceColumn="Goles_Visitante" DataSetColumn="Goles_Visitante" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="id_temporada" DataSetColumn="id_temporada" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPartidos1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsPartidos1" msprop:Generator_DataSetName="dsPartidos1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TablaPartidos" msprop:Generator_RowEvHandlerName="TablaPartidosRowChangeEventHandler" msprop:Generator_RowDeletedName="TablaPartidosRowDeleted" msprop:Generator_RowDeletingName="TablaPartidosRowDeleting" msprop:Generator_RowEvArgName="TablaPartidosRowChangeEvent" msprop:Generator_TablePropName="TablaPartidos" msprop:Generator_RowChangedName="TablaPartidosRowChanged" msprop:Generator_RowChangingName="TablaPartidosRowChanging" msprop:Generator_TableClassName="TablaPartidosDataTable" msprop:Generator_RowClassName="TablaPartidosRow" msprop:Generator_TableVarName="tableTablaPartidos" msprop:Generator_UserTableName="TablaPartidos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdPartido" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="IdPartido" msprop:Generator_ColumnPropNameInTable="IdPartidoColumn" msprop:Generator_ColumnVarNameInTable="columnIdPartido" msprop:Generator_UserColumnName="IdPartido" type="xs:int" />
+              <xs:element name="Fecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NombreClub" msprop:Generator_ColumnPropNameInRow="NombreClub" msprop:Generator_ColumnPropNameInTable="NombreClubColumn" msprop:Generator_ColumnVarNameInTable="columnNombreClub" msprop:Generator_UserColumnName="NombreClub">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreClub1" msprop:Generator_ColumnPropNameInRow="NombreClub1" msprop:Generator_ColumnPropNameInTable="NombreClub1Column" msprop:Generator_ColumnVarNameInTable="columnNombreClub1" msprop:Generator_UserColumnName="NombreClub1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Goles_Local" msprop:Generator_ColumnPropNameInRow="Goles_Local" msprop:Generator_ColumnPropNameInTable="Goles_LocalColumn" msprop:Generator_ColumnVarNameInTable="columnGoles_Local" msprop:Generator_UserColumnName="Goles_Local" type="xs:int" minOccurs="0" />
+              <xs:element name="Goles_Visitante" msprop:Generator_ColumnPropNameInRow="Goles_Visitante" msprop:Generator_ColumnPropNameInTable="Goles_VisitanteColumn" msprop:Generator_ColumnVarNameInTable="columnGoles_Visitante" msprop:Generator_UserColumnName="Goles_Visitante" type="xs:int" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_temporada" msprop:Generator_ColumnPropNameInRow="id_temporada" msprop:Generator_ColumnPropNameInTable="id_temporadaColumn" msprop:Generator_ColumnVarNameInTable="columnid_temporada" msprop:Generator_UserColumnName="id_temporada" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TablaPartidos" />
+      <xs:field xpath="mstns:IdPartido" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
