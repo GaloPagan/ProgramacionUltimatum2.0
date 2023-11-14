@@ -12,6 +12,8 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
 {
     internal class PartidoEstadisticaDAO : IDaoPartidoEstadistica
     {
+        
+        
         public int Crear(Partidos partidos)
         {
             SqlConnection connection = DBHelperDao.getInstance().GetConnection();
@@ -252,13 +254,23 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
             conn.Close();
             return resultado;
         }
-        public bool EliminarPartido(Partidos oPartido)
+        public bool EliminarPartido(int partido)
         {
+            bool resultado = false;
+            SqlConnection conn = DBHelperDao.getInstance().GetConnection();
+            SqlCommand command = new SqlCommand("SP_Borrar_Partidos", conn);
+            command.CommandType = CommandType.StoredProcedure;
+
+
+            command.Parameters.Add("@IDPartido", SqlDbType.Int).Value = partido;
 
             //escribir codigo para borrar partidos
 
-            return true;
+            return resultado;
         }
+        
+
+
     }
 }
 
