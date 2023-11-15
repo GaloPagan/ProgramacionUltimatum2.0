@@ -19,6 +19,7 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
             SqlConnection connection = DBHelperDao.getInstance().GetConnection();
             SqlTransaction t = null;
             int PartidoNro = 0;
+            Temporada temporada = null;
 
             try
             {
@@ -30,7 +31,7 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
                 sqlCommand.Parameters.AddWithValue("@Fecha", partidos.FechaPartido);
                 sqlCommand.Parameters.AddWithValue("@EquipoLocal", partidos.Local);
                 sqlCommand.Parameters.AddWithValue("@Adversario", partidos.Visitante);
-                sqlCommand.Parameters.AddWithValue("@id_temporada", partidos.TemporadaPartido.AgnoInicio);
+                sqlCommand.Parameters.AddWithValue("@id_temporada", partidos.TemporadaPartido.codigo);
                 sqlCommand.Parameters.AddWithValue("@goles_local", partidos.GolesLocal);
                 sqlCommand.Parameters.AddWithValue("@goles_visitantes", partidos.GolesVisitante);
 
@@ -115,8 +116,8 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
                 transaccion = conexion.BeginTransaction();
                 SqlCommand comando = new SqlCommand("SP_INSERTAR_JUGADOR", conexion, transaccion);
                 comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@Nombre", oJugador.Nombre);
-                comando.Parameters.AddWithValue("@Apellido", oJugador.Apellido);
+                comando.Parameters.AddWithValue("@Nombre", oJugador.nom);
+                comando.Parameters.AddWithValue("@Apellido", oJugador.ape);
                 comando.Parameters.AddWithValue("@Club", oJugador.club.Id);
                 comando.Parameters.AddWithValue("@Posicion", oJugador.posicion.idPosicion);
                 comando.Parameters.AddWithValue("@NumeroCamiseta", oJugador.Numero);
@@ -206,19 +207,32 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
             DataTable dt = DBHelperDao.getInstance().ConsultarSP("ConsultarJugadores");
             foreach (DataRow dr in dt.Rows)
             {
-                int Id = int.Parse(dr["idjugador"].ToString());
-                string nom = (dr["nombre"]).ToString();
+                int Id = int.Parse(dr["IDjugador"].ToString());
+                string nom = dr["nombre"].ToString();
+                string ape = dr["apellido"].ToString();
 
 
 
 
-                Jugador jugador = new Jugador(Id, nom);
+                Jugador jugador = new Jugador(Id, nom, ape);
                 lJugadores.Add(jugador);
 
             }
             return lJugadores;
         }
-
+        //public List<Pais> GetPais()
+        //{
+        //    List<Pais> lPaises = new List<Pais>();
+        //    DataTable tabla = DBHelperDao.getInstance().ConsultarSP("SP_CONSULTAR_PAIS");
+        //    foreach (DataRow fila in tabla.Rows)
+        //    {
+        //        int codigo = int.Parse(fila["id_pais"].ToString());
+        //        string nombre = fila["nombrePais"].ToString();
+        //        Pais c = new Pais(codigo, nombre);
+        //        lPaises.Add(c);
+        //    }
+        //    return lPaises;
+        //}
         public List<Club> GetClub2()
         {
             List<Club> lClubes = new List<Club>();
@@ -241,8 +255,8 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
             SqlCommand comando = new SqlCommand("SP_ACTUALIZAR_JUGADOR", conn, t);
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@IDJugador", oJugador.IdJugador);
-            comando.Parameters.AddWithValue("@Nombre", oJugador.Nombre);
-            comando.Parameters.AddWithValue("@Apellido", oJugador.Apellido);
+            comando.Parameters.AddWithValue("@Nombre", oJugador.nom);
+            comando.Parameters.AddWithValue("@Apellido", oJugador.ape);
             comando.Parameters.AddWithValue("@Club", oJugador.club.Id);
             comando.Parameters.AddWithValue("@Posicion", oJugador.posicion.idPosicion);
             comando.Parameters.AddWithValue("@NumeroCamiseta", oJugador.Numero);
@@ -254,7 +268,7 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
             conn.Close();
             return resultado;
         }
-        public bool EliminarPartido(int partido)
+        public bool EliminarPartido(Partidos partido)
         {
             bool resultado = false;
             SqlConnection conn = DBHelperDao.getInstance().GetConnection();
@@ -262,13 +276,13 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
             command.CommandType = CommandType.StoredProcedure;
 
 
-            command.Parameters.Add("@IDPartido", SqlDbType.Int).Value = partido;
+            command.Parameters.Add("@IDPartido", SqlDbType.Int).Value = partido.IdPartido;
 
             //escribir codigo para borrar partidos
 
             return resultado;
         }
-        
+
 
 
     }

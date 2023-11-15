@@ -114,8 +114,8 @@ namespace EquipoProgramacionEPF.Formulario
             Jugador.pais = (Pais)cboPais.SelectedItem;
             Jugador.posicion = (Posicion)cboPosicion.SelectedItem;
             Jugador.club = (Club)cboClub.SelectedItem;
-            Jugador.Nombre = txtNombre.Text;
-            Jugador.Apellido = txtApellido.Text;
+            Jugador.nom = txtNombre.Text;
+            Jugador.ape = txtApellido.Text;
             Jugador.Numero = Int32.Parse(txtCamiseta.Text);
             Jugador.FechaNacimiento = Convert.ToDateTime(dtpFecha.Text);
             Jugador.Altura = double.Parse(txtAltura.Text);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.partidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,9 +43,11 @@
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vERREPORTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -142,15 +145,25 @@
             // vERREPORTEToolStripMenuItem
             // 
             this.vERREPORTEToolStripMenuItem.Name = "vERREPORTEToolStripMenuItem";
-            this.vERREPORTEToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.vERREPORTEToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.vERREPORTEToolStripMenuItem.Text = "VER REPORTE";
             this.vERREPORTEToolStripMenuItem.Click += new System.EventHandler(this.vERREPORTEToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(282, 142);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 168);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
@@ -160,6 +173,7 @@
             this.contextMenuStrip3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,5 +194,6 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoJugadorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEPORTEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vERREPORTEToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

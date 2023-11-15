@@ -8,8 +8,8 @@ namespace EquipoProgramacionEPF.Dominio
 {
     public class Temporada
     {
-        private int codigo;
-        private int temporada;
+        public int codigo {  get; set; }
+        public int temporada { get; set; }
 
         public int Categoria { get; set; }
         public int AgnoInicio { get; set; }
@@ -30,11 +30,11 @@ namespace EquipoProgramacionEPF.Dominio
         public Temporada(int codigo, int temporada)
         {
             this.codigo = codigo;
-            this.temporada = temporada;
+            int anioInicio;
         }
         public override string ToString()
         {
-            return AgnoInicio.ToString();
+            return codigo+" "+AgnoInicio.ToString();
         }
     }
 }

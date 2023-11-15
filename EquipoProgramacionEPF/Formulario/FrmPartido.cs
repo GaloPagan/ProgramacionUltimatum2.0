@@ -37,9 +37,25 @@ namespace EquipoProgramacionEPF
             CargarComboVisitante();
             CargarCombotemporada();
             CargarComboJugadores();
+           
+
+            Inicializar();
+
+        }
+
+        private void Inicializar()
+        {
             txtGolesLoacal.Text = "0";
             txtGolesVisitante.Text = "0";
-
+            txtGoles.Text = "0";
+            txtGolesVisitante.Text = "0";
+            cboLocal.SelectedIndex = -1;
+            cboVisitante.SelectedIndex = -1;
+            txtAsiis.Text = "0";
+            txtGoles.Text = "0";
+            txtRoja.Text = "0";
+            txtAmarillas.Text = "0";
+            txtTiempoJugado.Text = "0";
         }
 
         private void CargarComboJugadores()
@@ -78,9 +94,14 @@ namespace EquipoProgramacionEPF
             NuevoPartido.GolesLocal = Convert.ToInt32(txtGolesLoacal.Text);
             NuevoPartido.GolesVisitante = Convert.ToInt32(txtGolesVisitante.Text);
             NuevoPartido.FechaPartido = Convert.ToDateTime(dtpFecha.Value);
-       
+            NuevoPartido.TemporadaPartido.codigo = Convert.ToInt32(cboTeporada.SelectedItem);
+            NuevoPartido.Local = Convert.ToInt32(cboLocal.SelectedItem);
+            NuevoPartido.TemporadaPartido.codigo = Convert.ToInt32(cboTeporada.SelectedItem);
+            NuevoPartido.Visitante = Convert.ToInt32(cboVisitante.SelectedItem);
 
-           
+
+
+
             int nroPartido = ServicioDatos.Crear(NuevoPartido);
             if (nroPartido > 0)
             {
@@ -108,6 +129,7 @@ namespace EquipoProgramacionEPF
                 MessageBox.Show("Ingrese un Jugador...", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            
             foreach (DataGridViewRow dr in dgvEstadisticas.Rows)
             {
                 if (dr.Cells["ColJugador"].Value.ToString().Equals(cboJugador.SelectedItem.ToString()))
@@ -142,6 +164,12 @@ namespace EquipoProgramacionEPF
             txtRoja.Text= "0";
             txtTiempoJugado.Text = "0";
             cboJugador.SelectedIndex= 0;
+            txtGolesLoacal.Text = "0";
+            txtGolesVisitante.Text = "0";
+            txtGoles.Text = "0";
+            txtGolesVisitante.Text = "0";
+            cboLocal.SelectedIndex = -1;
+            cboVisitante.SelectedIndex = -1;
         }
 
         private void dgvEstadisticas_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -163,6 +191,11 @@ namespace EquipoProgramacionEPF
         {
             if (MessageBox.Show("seguro que queres volver", "VOLVER", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             { Close(); }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

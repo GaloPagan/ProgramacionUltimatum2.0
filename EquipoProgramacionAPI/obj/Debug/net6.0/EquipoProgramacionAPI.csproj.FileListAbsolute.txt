@@ -72,3 +72,4 @@ C:\Users\RBB\Downloads\EquipoProgramacionEPFULTIMATUM\EquipoProgramacionAPI\obj\
 C:\Users\RBB\Downloads\EquipoProgramacionEPFULTIMATUM\EquipoProgramacionAPI\obj\Debug\net6.0\EquipoProgramacionAPI.pdb
 C:\Users\RBB\Downloads\EquipoProgramacionEPFULTIMATUM\EquipoProgramacionAPI\obj\Debug\net6.0\EquipoProgramacionAPI.genruntimeconfig.cache
 C:\Users\RBB\Downloads\EquipoProgramacionEPFULTIMATUM\EquipoProgramacionAPI\obj\Debug\net6.0\ref\EquipoProgramacionAPI.dll
+C:\Users\RBB\Downloads\EquipoProgramacionEPFULTIMATUM\EquipoProgramacionAPI\obj\Debug\net6.0\EquipoProgramacionAPI.sourcelink.json

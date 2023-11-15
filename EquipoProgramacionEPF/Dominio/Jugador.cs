@@ -8,16 +8,17 @@ namespace EquipoProgramacionEPF.Dominio
 {
     public class Jugador
     {
-        private int id;
-        private string nom;
+        public int id;
+        public string nom;
+        public string ape;
 
         public int Numero { get; set; }
 
         public Pais pais { get; set; }
         public Posicion posicion { get; set; }
         public Club club { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
+        //public string Nombre { get; set; }
+        //public string Apellido { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public double Altura { get; set; }
         public double Peso { get; set; }
@@ -33,8 +34,8 @@ namespace EquipoProgramacionEPF.Dominio
             pais = new Pais();
             posicion = new Posicion();
             Numero = 0;
-            Nombre = string.Empty;
-            Apellido = string.Empty;
+            nom = string.Empty;
+            ape = string.Empty;
 
         }
 
@@ -45,8 +46,8 @@ namespace EquipoProgramacionEPF.Dominio
             pais = pa;
             posicion = po;
             club = cl;
-            Nombre = nom;
-            Apellido = ap;
+            this.nom = nom;
+            this.ape= ape;
             FechaNacimiento = dat;
             Altura = alt;
             Peso = pe;
@@ -58,8 +59,8 @@ namespace EquipoProgramacionEPF.Dominio
             pais = pa;
             posicion = po;
             club = cl;
-            Nombre = nom;
-            Apellido = ap;
+            this.nom = nom;
+            ape = ap;
             FechaNacimiento = dat;
             Altura = alt;
             Peso = pe;
@@ -68,21 +69,22 @@ namespace EquipoProgramacionEPF.Dominio
         public Jugador(int id, string nom, string ape, int num)
         {
             IdJugador = id;
-            Nombre = nom;
-            Apellido = ape;
+            this.nom= nom;
+            this.nom = ape;
             Numero = num;
 
         }
 
-        public Jugador(int id, string nom)
+        public Jugador(int id, string nom, string ape)
         {
             this.id = id;
             this.nom = nom;
+            this.ape= ape;
         }
 
         public override string ToString()
         {
-            return Nombre+" "+Apellido;
+            return nom+" "+ape;
         }
     }
 }
