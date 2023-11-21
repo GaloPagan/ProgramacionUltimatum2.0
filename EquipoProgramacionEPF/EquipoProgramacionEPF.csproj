@@ -116,11 +116,11 @@
     <Compile Include="Formulario\FrmPartido.Designer.cs">
       <DependentUpon>FrmPartido.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulario\FrmReportes.cs">
+    <Compile Include="Formulario\FrmReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formulario\FrmReportes.Designer.cs">
-      <DependentUpon>FrmReportes.cs</DependentUpon>
+    <Compile Include="Formulario\FrmReporte.Designer.cs">
+      <DependentUpon>FrmReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario\FrmSignUp.cs">
       <SubType>Form</SubType>
@@ -130,10 +130,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reporte\dsPartidos1.Designer.cs">
+    <Compile Include="Reporte\DSPartidos.cs">
+      <DependentUpon>DSPartidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\DSPartidos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dsPartidos1.xsd</DependentUpon>
+      <DependentUpon>DSPartidos.xsd</DependentUpon>
     </Compile>
     <Compile Include="Servicios\FactoryServicio.cs" />
     <Compile Include="Servicios\FactoryServicioImp.cs" />
@@ -158,8 +161,8 @@
     <EmbeddedResource Include="Formulario\FrmPartido.resx">
       <DependentUpon>FrmPartido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulario\FrmReportes.resx">
-      <DependentUpon>FrmReportes.cs</DependentUpon>
+    <EmbeddedResource Include="Formulario\FrmReporte.resx">
+      <DependentUpon>FrmReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\FrmSignUp.resx">
       <DependentUpon>FrmSignUp.cs</DependentUpon>
@@ -184,16 +187,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Reporte\dsPartidos1.xsc">
-      <DependentUpon>dsPartidos1.xsd</DependentUpon>
+    <None Include="Reporte\DSPartidos.xsc">
+      <DependentUpon>DSPartidos.xsd</DependentUpon>
     </None>
-    <None Include="Reporte\dsPartidos1.xsd">
+    <None Include="Reporte\DSPartidos.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsPartidos1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DSPartidos.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Reporte\dsPartidos1.xss">
-      <DependentUpon>dsPartidos1.xsd</DependentUpon>
+    <None Include="Reporte\DSPartidos.xss">
+      <DependentUpon>DSPartidos.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -216,5 +219,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

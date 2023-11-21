@@ -22,9 +22,6 @@ namespace EquipoProgramacionEPF.Dominio
         public Partidos()
         {
             lEstadisticaPartidos = new List<EstadisticaPartido>();
-            TemporadaPartido = new Temporada();
-            ClubLocal = new Club();
-            ClubVisitante = new Club();
         }
         public Partidos(Temporada tem, Club loc, Club vis, DateTime fec, int gLoc, int gVis)
         {

@@ -9,7 +9,7 @@ namespace EquipoProgramacionEPF.Dominio
     public class Club
     {
         public int Id { get; set; }
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
         public int Ubicacion { get; set; }
         public string Estadio { get; set; }
         public DateTime FechaFundacion { get; set; }
@@ -18,7 +18,7 @@ namespace EquipoProgramacionEPF.Dominio
         public Club()
         {
             Id = 0;
-            nombre = string.Empty;
+            this.Nombre = string.Empty;
             Ubicacion = 0;
             Estadio = string.Empty;
             FechaFundacion = DateTime.Today;
@@ -27,13 +27,13 @@ namespace EquipoProgramacionEPF.Dominio
         public Club(int id,string Nombre)
         {
             Id = id;
-            nombre = Nombre;
+            this.Nombre = Nombre;
         }
       
         public Club(int id, string Nombre, int ubicacion, string estadio, DateTime fechaFundacion)
         {
             Id = id;
-            nombre = Nombre;
+            this.Nombre = Nombre;
             Ubicacion= ubicacion;
             Estadio = estadio;
             FechaFundacion= fechaFundacion;
@@ -41,7 +41,7 @@ namespace EquipoProgramacionEPF.Dominio
 
         public override string ToString()
         {
-            return nombre;
+            return Nombre;
         }
     }
 }

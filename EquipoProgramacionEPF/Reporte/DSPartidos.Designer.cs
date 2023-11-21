@@ -20,17 +20,17 @@ namespace EquipoProgramacionEPF.Reporte {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsPartidos1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DSPartidos")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsPartidos1 : global::System.Data.DataSet {
+    public partial class DSPartidos : global::System.Data.DataSet {
         
-        private TablaPartidosDataTable tableTablaPartidos;
+        private DataTable1DataTable tableDataTable1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public dsPartidos1() {
+        public DSPartidos() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace EquipoProgramacionEPF.Reporte {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected dsPartidos1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DSPartidos(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace EquipoProgramacionEPF.Reporte {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["TablaPartidos"] != null)) {
-                    base.Tables.Add(new TablaPartidosDataTable(ds.Tables["TablaPartidos"]));
+                if ((ds.Tables["DataTable1"] != null)) {
+                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace EquipoProgramacionEPF.Reporte {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TablaPartidosDataTable TablaPartidos {
+        public DataTable1DataTable DataTable1 {
             get {
-                return this.tableTablaPartidos;
+                return this.tableDataTable1;
             }
         }
         
@@ -127,7 +127,7 @@ namespace EquipoProgramacionEPF.Reporte {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsPartidos1 cln = ((dsPartidos1)(base.Clone()));
+            DSPartidos cln = ((DSPartidos)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace EquipoProgramacionEPF.Reporte {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["TablaPartidos"] != null)) {
-                    base.Tables.Add(new TablaPartidosDataTable(ds.Tables["TablaPartidos"]));
+                if ((ds.Tables["DataTable1"] != null)) {
+                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace EquipoProgramacionEPF.Reporte {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableTablaPartidos = ((TablaPartidosDataTable)(base.Tables["TablaPartidos"]));
+            this.tableDataTable1 = ((DataTable1DataTable)(base.Tables["DataTable1"]));
             if ((initTable == true)) {
-                if ((this.tableTablaPartidos != null)) {
-                    this.tableTablaPartidos.InitVars();
+                if ((this.tableDataTable1 != null)) {
+                    this.tableDataTable1.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace EquipoProgramacionEPF.Reporte {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsPartidos1";
+            this.DataSetName = "DSPartidos";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dsPartidos1.xsd";
+            this.Namespace = "http://tempuri.org/DSPartidos.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTablaPartidos = new TablaPartidosDataTable();
-            base.Tables.Add(this.tableTablaPartidos);
+            this.tableDataTable1 = new DataTable1DataTable();
+            base.Tables.Add(this.tableDataTable1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeTablaPartidos() {
+        private bool ShouldSerializeDataTable1() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace EquipoProgramacionEPF.Reporte {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsPartidos1 ds = new dsPartidos1();
+            DSPartidos ds = new DSPartidos();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace EquipoProgramacionEPF.Reporte {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void TablaPartidosRowChangeEventHandler(object sender, TablaPartidosRowChangeEvent e);
+        public delegate void DataTable1RowChangeEventHandler(object sender, DataTable1RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TablaPartidosDataTable : global::System.Data.TypedTableBase<TablaPartidosRow> {
+        public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
             
             private global::System.Data.DataColumn columnIdPartido;
             
@@ -297,8 +297,8 @@ namespace EquipoProgramacionEPF.Reporte {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TablaPartidosDataTable() {
-                this.TableName = "TablaPartidos";
+            public DataTable1DataTable() {
+                this.TableName = "DataTable1";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -306,7 +306,7 @@ namespace EquipoProgramacionEPF.Reporte {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal TablaPartidosDataTable(global::System.Data.DataTable table) {
+            internal DataTable1DataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -323,7 +323,7 @@ namespace EquipoProgramacionEPF.Reporte {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected TablaPartidosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected DataTable1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -403,34 +403,34 @@ namespace EquipoProgramacionEPF.Reporte {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TablaPartidosRow this[int index] {
+            public DataTable1Row this[int index] {
                 get {
-                    return ((TablaPartidosRow)(this.Rows[index]));
+                    return ((DataTable1Row)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TablaPartidosRowChangeEventHandler TablaPartidosRowChanging;
+            public event DataTable1RowChangeEventHandler DataTable1RowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TablaPartidosRowChangeEventHandler TablaPartidosRowChanged;
+            public event DataTable1RowChangeEventHandler DataTable1RowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TablaPartidosRowChangeEventHandler TablaPartidosRowDeleting;
+            public event DataTable1RowChangeEventHandler DataTable1RowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TablaPartidosRowChangeEventHandler TablaPartidosRowDeleted;
+            public event DataTable1RowChangeEventHandler DataTable1RowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddTablaPartidosRow(TablaPartidosRow row) {
+            public void AddDataTable1Row(DataTable1Row row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TablaPartidosRow AddTablaPartidosRow(System.DateTime Fecha, string NombreClub, string NombreClub1, int Goles_Local, int Goles_Visitante, string descripcion, int id_temporada) {
-                TablaPartidosRow rowTablaPartidosRow = ((TablaPartidosRow)(this.NewRow()));
+            public DataTable1Row AddDataTable1Row(System.DateTime Fecha, string NombreClub, string NombreClub1, int Goles_Local, int Goles_Visitante, string descripcion, int id_temporada) {
+                DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Fecha,
@@ -440,22 +440,22 @@ namespace EquipoProgramacionEPF.Reporte {
                         Goles_Visitante,
                         descripcion,
                         id_temporada};
-                rowTablaPartidosRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTablaPartidosRow);
-                return rowTablaPartidosRow;
+                rowDataTable1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDataTable1Row);
+                return rowDataTable1Row;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TablaPartidosRow FindByIdPartido(int IdPartido) {
-                return ((TablaPartidosRow)(this.Rows.Find(new object[] {
+            public DataTable1Row FindByIdPartido(int IdPartido) {
+                return ((DataTable1Row)(this.Rows.Find(new object[] {
                             IdPartido})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                TablaPartidosDataTable cln = ((TablaPartidosDataTable)(base.Clone()));
+                DataTable1DataTable cln = ((DataTable1DataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -463,7 +463,7 @@ namespace EquipoProgramacionEPF.Reporte {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TablaPartidosDataTable();
+                return new DataTable1DataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -515,28 +515,28 @@ namespace EquipoProgramacionEPF.Reporte {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TablaPartidosRow NewTablaPartidosRow() {
-                return ((TablaPartidosRow)(this.NewRow()));
+            public DataTable1Row NewDataTable1Row() {
+                return ((DataTable1Row)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TablaPartidosRow(builder);
+                return new DataTable1Row(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(TablaPartidosRow);
+                return typeof(DataTable1Row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TablaPartidosRowChanged != null)) {
-                    this.TablaPartidosRowChanged(this, new TablaPartidosRowChangeEvent(((TablaPartidosRow)(e.Row)), e.Action));
+                if ((this.DataTable1RowChanged != null)) {
+                    this.DataTable1RowChanged(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -544,8 +544,8 @@ namespace EquipoProgramacionEPF.Reporte {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TablaPartidosRowChanging != null)) {
-                    this.TablaPartidosRowChanging(this, new TablaPartidosRowChangeEvent(((TablaPartidosRow)(e.Row)), e.Action));
+                if ((this.DataTable1RowChanging != null)) {
+                    this.DataTable1RowChanging(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -553,8 +553,8 @@ namespace EquipoProgramacionEPF.Reporte {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TablaPartidosRowDeleted != null)) {
-                    this.TablaPartidosRowDeleted(this, new TablaPartidosRowChangeEvent(((TablaPartidosRow)(e.Row)), e.Action));
+                if ((this.DataTable1RowDeleted != null)) {
+                    this.DataTable1RowDeleted(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -562,14 +562,14 @@ namespace EquipoProgramacionEPF.Reporte {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TablaPartidosRowDeleting != null)) {
-                    this.TablaPartidosRowDeleting(this, new TablaPartidosRowChangeEvent(((TablaPartidosRow)(e.Row)), e.Action));
+                if ((this.DataTable1RowDeleting != null)) {
+                    this.DataTable1RowDeleting(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveTablaPartidosRow(TablaPartidosRow row) {
+            public void RemoveDataTable1Row(DataTable1Row row) {
                 this.Rows.Remove(row);
             }
             
@@ -578,7 +578,7 @@ namespace EquipoProgramacionEPF.Reporte {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsPartidos1 ds = new dsPartidos1();
+                DSPartidos ds = new DSPartidos();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -596,7 +596,7 @@ namespace EquipoProgramacionEPF.Reporte {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TablaPartidosDataTable";
+                attribute2.FixedValue = "DataTable1DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -640,25 +640,25 @@ namespace EquipoProgramacionEPF.Reporte {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class TablaPartidosRow : global::System.Data.DataRow {
+        public partial class DataTable1Row : global::System.Data.DataRow {
             
-            private TablaPartidosDataTable tableTablaPartidos;
+            private DataTable1DataTable tableDataTable1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal TablaPartidosRow(global::System.Data.DataRowBuilder rb) : 
+            internal DataTable1Row(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTablaPartidos = ((TablaPartidosDataTable)(this.Table));
+                this.tableDataTable1 = ((DataTable1DataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int IdPartido {
                 get {
-                    return ((int)(this[this.tableTablaPartidos.IdPartidoColumn]));
+                    return ((int)(this[this.tableDataTable1.IdPartidoColumn]));
                 }
                 set {
-                    this[this.tableTablaPartidos.IdPartidoColumn] = value;
+                    this[this.tableDataTable1.IdPartidoColumn] = value;
                 }
             }
             
@@ -667,14 +667,14 @@ namespace EquipoProgramacionEPF.Reporte {
             public System.DateTime Fecha {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableTablaPartidos.FechaColumn]));
+                        return ((global::System.DateTime)(this[this.tableDataTable1.FechaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha\' de la tabla \'TablaPartidos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha\' de la tabla \'DataTable1\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTablaPartidos.FechaColumn] = value;
+                    this[this.tableDataTable1.FechaColumn] = value;
                 }
             }
             
@@ -682,10 +682,10 @@ namespace EquipoProgramacionEPF.Reporte {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string NombreClub {
                 get {
-                    return ((string)(this[this.tableTablaPartidos.NombreClubColumn]));
+                    return ((string)(this[this.tableDataTable1.NombreClubColumn]));
                 }
                 set {
-                    this[this.tableTablaPartidos.NombreClubColumn] = value;
+                    this[this.tableDataTable1.NombreClubColumn] = value;
                 }
             }
             
@@ -693,10 +693,10 @@ namespace EquipoProgramacionEPF.Reporte {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string NombreClub1 {
                 get {
-                    return ((string)(this[this.tableTablaPartidos.NombreClub1Column]));
+                    return ((string)(this[this.tableDataTable1.NombreClub1Column]));
                 }
                 set {
-                    this[this.tableTablaPartidos.NombreClub1Column] = value;
+                    this[this.tableDataTable1.NombreClub1Column] = value;
                 }
             }
             
@@ -705,14 +705,14 @@ namespace EquipoProgramacionEPF.Reporte {
             public int Goles_Local {
                 get {
                     try {
-                        return ((int)(this[this.tableTablaPartidos.Goles_LocalColumn]));
+                        return ((int)(this[this.tableDataTable1.Goles_LocalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Goles_Local\' de la tabla \'TablaPartidos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Goles_Local\' de la tabla \'DataTable1\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTablaPartidos.Goles_LocalColumn] = value;
+                    this[this.tableDataTable1.Goles_LocalColumn] = value;
                 }
             }
             
@@ -721,14 +721,14 @@ namespace EquipoProgramacionEPF.Reporte {
             public int Goles_Visitante {
                 get {
                     try {
-                        return ((int)(this[this.tableTablaPartidos.Goles_VisitanteColumn]));
+                        return ((int)(this[this.tableDataTable1.Goles_VisitanteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Goles_Visitante\' de la tabla \'TablaPartidos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Goles_Visitante\' de la tabla \'DataTable1\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTablaPartidos.Goles_VisitanteColumn] = value;
+                    this[this.tableDataTable1.Goles_VisitanteColumn] = value;
                 }
             }
             
@@ -737,14 +737,14 @@ namespace EquipoProgramacionEPF.Reporte {
             public string descripcion {
                 get {
                     try {
-                        return ((string)(this[this.tableTablaPartidos.descripcionColumn]));
+                        return ((string)(this[this.tableDataTable1.descripcionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'descripcion\' de la tabla \'TablaPartidos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'descripcion\' de la tabla \'DataTable1\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTablaPartidos.descripcionColumn] = value;
+                    this[this.tableDataTable1.descripcionColumn] = value;
                 }
             }
             
@@ -753,75 +753,75 @@ namespace EquipoProgramacionEPF.Reporte {
             public int id_temporada {
                 get {
                     try {
-                        return ((int)(this[this.tableTablaPartidos.id_temporadaColumn]));
+                        return ((int)(this[this.tableDataTable1.id_temporadaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_temporada\' de la tabla \'TablaPartidos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_temporada\' de la tabla \'DataTable1\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTablaPartidos.id_temporadaColumn] = value;
+                    this[this.tableDataTable1.id_temporadaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsFechaNull() {
-                return this.IsNull(this.tableTablaPartidos.FechaColumn);
+                return this.IsNull(this.tableDataTable1.FechaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetFechaNull() {
-                this[this.tableTablaPartidos.FechaColumn] = global::System.Convert.DBNull;
+                this[this.tableDataTable1.FechaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsGoles_LocalNull() {
-                return this.IsNull(this.tableTablaPartidos.Goles_LocalColumn);
+                return this.IsNull(this.tableDataTable1.Goles_LocalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetGoles_LocalNull() {
-                this[this.tableTablaPartidos.Goles_LocalColumn] = global::System.Convert.DBNull;
+                this[this.tableDataTable1.Goles_LocalColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsGoles_VisitanteNull() {
-                return this.IsNull(this.tableTablaPartidos.Goles_VisitanteColumn);
+                return this.IsNull(this.tableDataTable1.Goles_VisitanteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetGoles_VisitanteNull() {
-                this[this.tableTablaPartidos.Goles_VisitanteColumn] = global::System.Convert.DBNull;
+                this[this.tableDataTable1.Goles_VisitanteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsdescripcionNull() {
-                return this.IsNull(this.tableTablaPartidos.descripcionColumn);
+                return this.IsNull(this.tableDataTable1.descripcionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetdescripcionNull() {
-                this[this.tableTablaPartidos.descripcionColumn] = global::System.Convert.DBNull;
+                this[this.tableDataTable1.descripcionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_temporadaNull() {
-                return this.IsNull(this.tableTablaPartidos.id_temporadaColumn);
+                return this.IsNull(this.tableDataTable1.id_temporadaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setid_temporadaNull() {
-                this[this.tableTablaPartidos.id_temporadaColumn] = global::System.Convert.DBNull;
+                this[this.tableDataTable1.id_temporadaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -829,22 +829,22 @@ namespace EquipoProgramacionEPF.Reporte {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class TablaPartidosRowChangeEvent : global::System.EventArgs {
+        public class DataTable1RowChangeEvent : global::System.EventArgs {
             
-            private TablaPartidosRow eventRow;
+            private DataTable1Row eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TablaPartidosRowChangeEvent(TablaPartidosRow row, global::System.Data.DataRowAction action) {
+            public DataTable1RowChangeEvent(DataTable1Row row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TablaPartidosRow Row {
+            public DataTable1Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -860,7 +860,7 @@ namespace EquipoProgramacionEPF.Reporte {
         }
     }
 }
-namespace EquipoProgramacionEPF.Reporte.dsPartidos1TableAdapters {
+namespace EquipoProgramacionEPF.Reporte.DSPartidosTableAdapters {
     
     
     /// <summary>
@@ -872,7 +872,7 @@ namespace EquipoProgramacionEPF.Reporte.dsPartidos1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class TablaPartidosTableAdapter : global::System.ComponentModel.Component {
+    public partial class DataTable1TableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -886,7 +886,7 @@ namespace EquipoProgramacionEPF.Reporte.dsPartidos1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public TablaPartidosTableAdapter() {
+        public DataTable1TableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -983,7 +983,7 @@ namespace EquipoProgramacionEPF.Reporte.dsPartidos1TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "TablaPartidos";
+            tableMapping.DataSetTable = "DataTable1";
             tableMapping.ColumnMappings.Add("IdPartido", "IdPartido");
             tableMapping.ColumnMappings.Add("Fecha", "Fecha");
             tableMapping.ColumnMappings.Add("NombreClub", "NombreClub");
@@ -999,7 +999,8 @@ namespace EquipoProgramacionEPF.Reporte.dsPartidos1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::EquipoProgramacionEPF.Properties.Settings.Default.ClubPrograIIOficialConnectionString;
+            this._connection.ConnectionString = "Data Source=DESKTOP-9AM41UI\\SQLEXPRESS;Initial Catalog=ClubLaboratorioPresentacio" +
+                "n;Integrated Security=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1022,7 +1023,7 @@ where p.id_temporada = t.IDTemporada";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsPartidos1.TablaPartidosDataTable dataTable) {
+        public virtual int Fill(DSPartidos.DataTable1DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1035,9 +1036,9 @@ where p.id_temporada = t.IDTemporada";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsPartidos1.TablaPartidosDataTable GetData() {
+        public virtual DSPartidos.DataTable1DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            dsPartidos1.TablaPartidosDataTable dataTable = new dsPartidos1.TablaPartidosDataTable();
+            DSPartidos.DataTable1DataTable dataTable = new DSPartidos.DataTable1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1111,7 +1112,7 @@ where p.id_temporada = t.IDTemporada";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(dsPartidos1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DSPartidos dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1121,7 +1122,7 @@ where p.id_temporada = t.IDTemporada";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(dsPartidos1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DSPartidos dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1131,7 +1132,7 @@ where p.id_temporada = t.IDTemporada";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(dsPartidos1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DSPartidos dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1165,7 +1166,7 @@ where p.id_temporada = t.IDTemporada";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(dsPartidos1 dataSet) {
+        public virtual int UpdateAll(DSPartidos dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

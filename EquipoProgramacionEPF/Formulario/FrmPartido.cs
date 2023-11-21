@@ -18,7 +18,7 @@ namespace EquipoProgramacionEPF
         //FactoryServicioImp fabrica = null;
        
         //Jugador Jugador = null;
-        Partidos NuevoPartido = null;
+        List<EstadisticaPartido> listaEstadistica = new List<EstadisticaPartido>();
         IServicio ServicioDatos = null;
         int auxEstadistica;
         
@@ -38,7 +38,6 @@ namespace EquipoProgramacionEPF
         {
             InitializeComponent();
             ServicioDatos = fabrica.GetServicio();
-            NuevoPartido = new Partidos();
             auxEstadistica = 1;
 
 
@@ -109,15 +108,27 @@ namespace EquipoProgramacionEPF
         }
         private void GrabarPartido()
         {
+            //NuevoPartido.TemporadaPartido = (Temporada)cboTeporada.SelectedItem;
+            //NuevoPartido.FechaPartido = dtpFecha.Value;
+            //NuevoPartido.ClubLocal = (Club)cboLocal.SelectedItem;
+            //NuevoPartido.ClubVisitante = (Club)cboVisitante.SelectedItem;
+            //NuevoPartido.GolesLocal = int.Parse(txtGolesLoacal.Text);
+            //NuevoPartido.GolesVisitante = int.Parse(txtGolesVisitante.Text);
 
-            NuevoPartido.GolesLocal =3;
-            NuevoPartido.GolesVisitante = 2;
-            NuevoPartido.FechaPartido =DateTime.Now;
-            NuevoPartido.TemporadaPartido = (Temporada)cboTeporada.SelectedItem;
-            NuevoPartido.ClubLocal.Id = 3;
-            NuevoPartido.ClubVisitante.Id = 2;
-           
-            
+
+
+            int GLoc = int.Parse(txtGolesLoacal.Text);
+            int GVis = int.Parse(txtGolesVisitante.Text);
+            DateTime Fec = dtpFecha.Value;
+            Temporada Temp = (Temporada)cboTeporada.SelectedItem;
+            Club CLoc = (Club)cboLocal.SelectedItem;
+            Club CVis = (Club)cboVisitante.SelectedItem;
+            Partidos partido = new Partidos(Temp, CLoc, CVis, Fec, GLoc, GVis);
+
+            foreach (EstadisticaPartido estadistica in listaEstadistica)
+            {
+                partido.AddEstadistica(estadistica);
+            }
             //NuevoPartido.GolesLocal = Convert.ToInt32(txtGolesLoacal.Text);
             //NuevoPartido.GolesVisitante = Convert.ToInt32(txtGolesVisitante.Text);
             //NuevoPartido.FechaPartido = Convert.ToDateTime(dtpFecha.Value);
@@ -131,7 +142,6 @@ namespace EquipoProgramacionEPF
 
             //NuevoPartido.ClubLocal = (Club)cboLocal.SelectedItem;
             //NuevoPartido.ClubVisitante = (Club)cboVisitante.SelectedItem;
-           
 
 
 
@@ -139,7 +149,8 @@ namespace EquipoProgramacionEPF
 
 
 
-            if (ServicioDatos.Crear(NuevoPartido))
+
+            if (ServicioDatos.Crear(partido))
             
             {
                 MessageBox.Show("Se registro con exito el partido", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -201,8 +212,8 @@ namespace EquipoProgramacionEPF
             
 
             EstadisticaPartido estadistica = new EstadisticaPartido(j, Asi, gol, ama, roj, Tie);
-
-            NuevoPartido.AddEstadistica(estadistica);
+            listaEstadistica.Add(estadistica);
+            //NuevoPartido.AddEstadistica(estadistica);
 
             dgvEstadisticas.Rows.Add(new object[] { j.id,j.nom  ,Asi, gol, ama, roj, Tie, "Quitar" });
             auxEstadistica++;
@@ -229,7 +240,8 @@ namespace EquipoProgramacionEPF
         {
             if (dgvEstadisticas.CurrentCell.ColumnIndex == 7)
             {
-                NuevoPartido.RemoveEstadistica(dgvEstadisticas.CurrentRow.Index);
+                //NuevoPartido.RemoveEstadistica(dgvEstadisticas.CurrentRow.Index);
+                listaEstadistica.RemoveAt(dgvEstadisticas.CurrentRow.Index);
                 dgvEstadisticas.Rows.RemoveAt(dgvEstadisticas.CurrentRow.Index);
             }
         }
@@ -249,6 +261,11 @@ namespace EquipoProgramacionEPF
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboLocal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

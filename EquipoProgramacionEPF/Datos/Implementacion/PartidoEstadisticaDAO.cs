@@ -1,4 +1,20 @@
-﻿using System;
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -7,6 +23,8 @@ using System.Text;
 using System.Threading.Tasks;
 using EquipoProgramacionEPF.Dominio;
 using EquipoProgramacionEPF.Datos.Interfaz;
+using System.Data.SqlTypes;
+using System.Windows.Forms;
 
 namespace EquipoProgramacionEPF.Datos.Implementacion
 {
@@ -104,13 +122,28 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
             {
                 connection.Open();
                 t = connection.BeginTransaction();
-               
-               
+
+                MessageBox.Show("Iniciando transacción...");
+
+                SqlCommand siguientepartido = new SqlCommand("SP_SiguientePartido", connection, t);
+                siguientepartido.CommandType = CommandType.StoredProcedure;
+
+                // Parámetro de salida para capturar el siguiente IDPartido
+                SqlParameter Param = new SqlParameter("@SiguientePartido", SqlDbType.Int);
+                Param.Direction = ParameterDirection.Output;
+                siguientepartido.Parameters.Add(Param);
+
+                siguientepartido.ExecuteNonQuery();
+
+                MessageBox.Show("Recuperando Siguiente Partido...");
+
+                int siguientePartido = Convert.ToInt32(Param.Value);
 
                 // 2. Crear el Club Visitante (supongamos que ya tienes un objeto Club con la información necesaria)
-              
+
                 SqlCommand sqlCommand = new SqlCommand("SP_InsertarPartido", connection, t);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
+
 
                 sqlCommand.Parameters.AddWithValue("@Fecha", partidos.FechaPartido);
                 sqlCommand.Parameters.AddWithValue("@Adversario", partidos.ClubVisitante.Id);
@@ -121,14 +154,18 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
 
                 sqlCommand.ExecuteNonQuery();
 
+                MessageBox.Show("Insertando Partido...");
                 int i = 1;
                 SqlCommand cmdEstadistica;
 
                 foreach (EstadisticaPartido e in partidos.lEstadisticaPartidos)
                 {
+                    MessageBox.Show($"Insertando estadística {i}...");
+
                     cmdEstadistica = new SqlCommand("SP_INSERTAR_ESTADISTICAS", connection, t);
                     cmdEstadistica.CommandType = CommandType.StoredProcedure;
 
+                    cmdEstadistica.Parameters.AddWithValue("@IDPartido", siguientePartido);
                     cmdEstadistica.Parameters.AddWithValue("@ID_estadistica", i);
                     cmdEstadistica.Parameters.AddWithValue("@IDJUGADOR", e.Jugador.id);
                     cmdEstadistica.Parameters.AddWithValue("@goles", e.Goles);
@@ -142,6 +179,7 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
                 }
 
                 t.Commit();
+                MessageBox.Show("Transacción completada con éxito.");
             }
             catch (Exception ex)
             {
@@ -150,6 +188,7 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
                     t.Rollback();
                     aux = false;
                 }
+                MessageBox.Show($"Error: {ex.Message}");
                 // Manejar la excepción o registrarla según sea necesario.
             }
             finally
@@ -278,10 +317,10 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
         {
             List<Club> lClubes = new List<Club>();
             DataTable tabla = DBHelperDao.getInstance().ConsultarSP("SP_CONSULTAR_CLUB");
-            foreach (DataRow fila in tabla.Rows)
+            foreach (DataRow f in tabla.Rows)
             {
-                int codigo = int.Parse(fila["IDClub"].ToString());
-                string nombre = fila["NombreClub"].ToString();
+                int codigo = int.Parse(f["IDClub"].ToString());
+                string nombre = f["NombreClub"].ToString();
                 Club c = new Club(codigo, nombre);
                 lClubes.Add(c);
             }

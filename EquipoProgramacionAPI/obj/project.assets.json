@@ -452,33 +452,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\RBB\\.nuget\\packages\\": {}
+    "C:\\Users\\Thomas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\RBB\\Downloads\\EquipoProgramacionEPFULTIMATUM\\EquipoProgramacionAPI\\EquipoProgramacionAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Thomas\\Desktop\\b\\Git\\ProgramacionUltimatum2.0\\EquipoProgramacionAPI\\EquipoProgramacionAPI.csproj",
       "projectName": "EquipoProgramacionAPI",
-      "projectPath": "C:\\Users\\RBB\\Downloads\\EquipoProgramacionEPFULTIMATUM\\EquipoProgramacionAPI\\EquipoProgramacionAPI.csproj",
-      "packagesPath": "C:\\Users\\RBB\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\RBB\\Downloads\\EquipoProgramacionEPFULTIMATUM\\EquipoProgramacionAPI\\obj\\",
+      "projectPath": "C:\\Users\\Thomas\\Desktop\\b\\Git\\ProgramacionUltimatum2.0\\EquipoProgramacionAPI\\EquipoProgramacionAPI.csproj",
+      "packagesPath": "C:\\Users\\Thomas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Thomas\\Desktop\\b\\Git\\ProgramacionUltimatum2.0\\EquipoProgramacionAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\RBB\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Thomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\RBB\\Downloads\\EquipoProgramacionEPFULTIMATUM\\EquipoProgramacionEPF\\EquipoProgramacionEPF.csproj": {
-              "projectPath": "C:\\Users\\RBB\\Downloads\\EquipoProgramacionEPFULTIMATUM\\EquipoProgramacionEPF\\EquipoProgramacionEPF.csproj"
+            "C:\\Users\\Thomas\\Desktop\\b\\Git\\ProgramacionUltimatum2.0\\EquipoProgramacionEPF\\EquipoProgramacionEPF.csproj": {
+              "projectPath": "C:\\Users\\Thomas\\Desktop\\b\\Git\\ProgramacionUltimatum2.0\\EquipoProgramacionEPF\\EquipoProgramacionEPF.csproj"
             }
           }
         }
@@ -517,7 +518,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

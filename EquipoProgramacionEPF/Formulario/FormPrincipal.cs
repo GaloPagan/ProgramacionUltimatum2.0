@@ -109,7 +109,7 @@ namespace EquipoProgProyecto
         {
             //PartidosReport report = new PartidosReport();
             //report.ShowDialog();
-            FrmReportes frmReportes = new FrmReportes();
+            FrmReporte frmReportes = new FrmReporte();
             frmReportes.ShowDialog();
         }
 
