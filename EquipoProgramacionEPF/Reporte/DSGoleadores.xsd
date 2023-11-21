@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSGoleadores" targetNamespace="http://tempuri.org/DSGoleadores.xsd" xmlns:mstns="http://tempuri.org/DSGoleadores.xsd" xmlns="http://tempuri.org/DSGoleadores.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ClubLaboratorioPresentacionConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ClubLaboratorioPresentacionConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.EquipoProgramacionEPF.Properties.Settings.GlobalReference.Default.ClubLaboratorioPresentacionConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="T_GoleadoresTableAdapter" GeneratorDataComponentClassName="T_GoleadoresTableAdapter" Name="T_Goleadores" UserDataComponentName="T_GoleadoresTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ClubLaboratorioPresentacionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+        C.NombreClub AS 'Club',
+        J.Nombre + ',' + J.Apellido AS 'Futbolista',
+        PA.nombrePais 'Pais',
+        SUM(P.Goles) AS 'Goles',
+        TE.torneo AS 'Torneo',
+        CONCAT(T.AnioInicio, '/', T.AnioFin) AS 'Temporada'
+    FROM
+        EstadisticasPartido P
+    JOIN
+        Jugadores J ON J.IDJugador = P.IDJUGADOR
+    JOIN
+        Clubes C ON C.IDClub = J.club
+    JOIN
+        Partidos Part ON Part.IDPartido = P.IDPartido
+    JOIN
+        Temporadas T ON T.IDTemporada = Part.id_temporada
+    JOIN
+        Torneos TE ON TE.id_Torneo = T.id_torneo
+    JOIN 
+        paises PA ON PA.id_pais=J.Nacionalidad
+    WHERE
+        C.IDClub = J.club AND J.IDJugador = P.IDJUGADOR AND UPPER('Primera Division LPF') = UPPER(TE.torneo) AND 2023 = T.AnioInicio AND 2024 = T.AnioFin
+    GROUP BY
+        C.NombreClub, J.Nombre, J.Apellido,PA.nombrePais, TE.torneo, T.AnioInicio, T.AnioFin
+    ORDER BY
+        Goles DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Club" DataSetColumn="Club" />
+              <Mapping SourceColumn="Futbolista" DataSetColumn="Futbolista" />
+              <Mapping SourceColumn="Pais" DataSetColumn="Pais" />
+              <Mapping SourceColumn="Goles" DataSetColumn="Goles" />
+              <Mapping SourceColumn="Torneo" DataSetColumn="Torneo" />
+              <Mapping SourceColumn="Temporada" DataSetColumn="Temporada" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSGoleadores" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DSGoleadores" msprop:Generator_DataSetName="DSGoleadores">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="T_Goleadores" msprop:Generator_RowEvHandlerName="T_GoleadoresRowChangeEventHandler" msprop:Generator_RowDeletedName="T_GoleadoresRowDeleted" msprop:Generator_RowDeletingName="T_GoleadoresRowDeleting" msprop:Generator_RowEvArgName="T_GoleadoresRowChangeEvent" msprop:Generator_TablePropName="T_Goleadores" msprop:Generator_RowChangedName="T_GoleadoresRowChanged" msprop:Generator_RowChangingName="T_GoleadoresRowChanging" msprop:Generator_TableClassName="T_GoleadoresDataTable" msprop:Generator_RowClassName="T_GoleadoresRow" msprop:Generator_TableVarName="tableT_Goleadores" msprop:Generator_UserTableName="T_Goleadores">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Club" msprop:Generator_ColumnPropNameInRow="Club" msprop:Generator_ColumnPropNameInTable="ClubColumn" msprop:Generator_ColumnVarNameInTable="columnClub" msprop:Generator_UserColumnName="Club">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Futbolista" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Futbolista" msprop:Generator_ColumnPropNameInTable="FutbolistaColumn" msprop:Generator_ColumnVarNameInTable="columnFutbolista" msprop:Generator_UserColumnName="Futbolista" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="511" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pais" msprop:Generator_ColumnPropNameInRow="Pais" msprop:Generator_ColumnPropNameInTable="PaisColumn" msprop:Generator_ColumnVarNameInTable="columnPais" msprop:Generator_UserColumnName="Pais" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Goles" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Goles" msprop:Generator_ColumnPropNameInTable="GolesColumn" msprop:Generator_ColumnVarNameInTable="columnGoles" msprop:Generator_UserColumnName="Goles" type="xs:int" minOccurs="0" />
+              <xs:element name="Torneo" msprop:Generator_ColumnPropNameInRow="Torneo" msprop:Generator_ColumnPropNameInTable="TorneoColumn" msprop:Generator_ColumnVarNameInTable="columnTorneo" msprop:Generator_UserColumnName="Torneo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Temporada" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Temporada" msprop:Generator_ColumnPropNameInTable="TemporadaColumn" msprop:Generator_ColumnVarNameInTable="columnTemporada" msprop:Generator_UserColumnName="Temporada" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -51,8 +51,14 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -116,11 +122,23 @@
     <Compile Include="Formulario\FrmPartido.Designer.cs">
       <DependentUpon>FrmPartido.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulario\FrmReporte.cs">
+    <Compile Include="Formulario\FrmRptGoleadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formulario\FrmReporte.Designer.cs">
-      <DependentUpon>FrmReporte.cs</DependentUpon>
+    <Compile Include="Formulario\FrmRptGoleadores.Designer.cs">
+      <DependentUpon>FrmRptGoleadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\FrmRptPartidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\FrmRptPartidos.Designer.cs">
+      <DependentUpon>FrmRptPartidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\FrmRptPosiciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\FrmRptPosiciones.Designer.cs">
+      <DependentUpon>FrmRptPosiciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario\FrmSignUp.cs">
       <SubType>Form</SubType>
@@ -128,15 +146,23 @@
     <Compile Include="Formulario\FrmSignUp.designer.cs">
       <DependentUpon>FrmSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Http\ClienteSingleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reporte\DSPartidos.cs">
-      <DependentUpon>DSPartidos.xsd</DependentUpon>
+    <Compile Include="Reporte\DSGoleadores.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSGoleadores.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reporte\DSPartidos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSPartidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\DSPosiciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPosiciones.xsd</DependentUpon>
     </Compile>
     <Compile Include="Servicios\FactoryServicio.cs" />
     <Compile Include="Servicios\FactoryServicioImp.cs" />
@@ -161,8 +187,14 @@
     <EmbeddedResource Include="Formulario\FrmPartido.resx">
       <DependentUpon>FrmPartido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulario\FrmReporte.resx">
-      <DependentUpon>FrmReporte.cs</DependentUpon>
+    <EmbeddedResource Include="Formulario\FrmRptGoleadores.resx">
+      <DependentUpon>FrmRptGoleadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\FrmRptPartidos.resx">
+      <DependentUpon>FrmRptPartidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\FrmRptPosiciones.resx">
+      <DependentUpon>FrmRptPosiciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\FrmSignUp.resx">
       <DependentUpon>FrmSignUp.cs</DependentUpon>
@@ -176,7 +208,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reporte\RptGoleadores.rdlc" />
     <EmbeddedResource Include="Reporte\RptPartidos.rdlc" />
+    <EmbeddedResource Include="Reporte\RptPosiciones.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -187,6 +221,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Reporte\DSGoleadores.xsc">
+      <DependentUpon>DSGoleadores.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\DSGoleadores.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSGoleadores.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporte\DSGoleadores.xss">
+      <DependentUpon>DSGoleadores.xsd</DependentUpon>
+    </None>
     <None Include="Reporte\DSPartidos.xsc">
       <DependentUpon>DSPartidos.xsd</DependentUpon>
     </None>
@@ -197,6 +242,17 @@
     </None>
     <None Include="Reporte\DSPartidos.xss">
       <DependentUpon>DSPartidos.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\DSPosiciones.xsc">
+      <DependentUpon>DSPosiciones.xsd</DependentUpon>
+    </None>
+    <None Include="Reporte\DSPosiciones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPosiciones.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reporte\DSPosiciones.xss">
+      <DependentUpon>DSPosiciones.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

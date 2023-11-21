@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSPosiciones" targetNamespace="http://tempuri.org/DSPosiciones.xsd" xmlns:mstns="http://tempuri.org/DSPosiciones.xsd" xmlns="http://tempuri.org/DSPosiciones.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=DESKTOP-8C00J2S\ULTIMOSQL;Initial Catalog=ClubLaboratorioPresentacion;Integrated Security=True;TrustServerCertificate=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="desktop-8c00j2s\ultimosql.ClubLaboratorioPresentacion.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="T_PosicionesTableAdapter" GeneratorDataComponentClassName="T_PosicionesTableAdapter" Name="T_Posiciones" UserDataComponentName="T_PosicionesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="desktop-8c00j2s\ultimosql.ClubLaboratorioPresentacion.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+    C.NombreClub AS 'Club',
+    CT.puntos AS 'Puntos',
+    COALESCE(SUM(E.Goles), 0) AS 'Goles',  -- Utilizando COALESCE para manejar nulos y mostrar 0 goles
+    TE.torneo AS 'Torneo',
+    CONCAT(T.AnioInicio, '/', T.AnioFin) AS 'Temporada'
+FROM
+    Clubes C
+JOIN
+    Club_temporada CT ON CT.idClub = C.IDClub
+JOIN
+    Temporadas T ON T.IDTemporada = CT.id_temporada
+JOIN
+    Partidos P ON P.id_temporada = T.IDTemporada
+JOIN
+    Torneos TE ON T.id_torneo = TE.id_Torneo
+JOIN
+    Jugadores J ON J.club = C.IDClub
+LEFT JOIN
+    EstadisticasPartido E ON E.IDJUGADOR = J.IDJugador AND E.IDPartido = P.IDPartido
+WHERE 
+     TE.torneo = 'Primera Division LPF' AND T.AnioInicio = 2023 AND T.AnioFin = 2024
+GROUP BY
+    C.NombreClub, CT.puntos, TE.torneo, T.AnioInicio, T.AnioFin
+ORDER BY
+    CT.puntos DESC, Goles DESC;</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Club" DataSetColumn="Club" />
+              <Mapping SourceColumn="Puntos" DataSetColumn="Puntos" />
+              <Mapping SourceColumn="Goles" DataSetColumn="Goles" />
+              <Mapping SourceColumn="Torneo" DataSetColumn="Torneo" />
+              <Mapping SourceColumn="Temporada" DataSetColumn="Temporada" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSPosiciones" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DSPosiciones" msprop:Generator_DataSetName="DSPosiciones">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="T_Posiciones" msprop:Generator_RowEvHandlerName="T_PosicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="T_PosicionesRowDeleted" msprop:Generator_RowDeletingName="T_PosicionesRowDeleting" msprop:Generator_RowEvArgName="T_PosicionesRowChangeEvent" msprop:Generator_TablePropName="T_Posiciones" msprop:Generator_RowChangedName="T_PosicionesRowChanged" msprop:Generator_RowChangingName="T_PosicionesRowChanging" msprop:Generator_TableClassName="T_PosicionesDataTable" msprop:Generator_RowClassName="T_PosicionesRow" msprop:Generator_TableVarName="tableT_Posiciones" msprop:Generator_UserTableName="T_Posiciones">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Club" msprop:Generator_ColumnPropNameInRow="Club" msprop:Generator_ColumnPropNameInTable="ClubColumn" msprop:Generator_ColumnVarNameInTable="columnClub" msprop:Generator_UserColumnName="Club">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Puntos" msprop:Generator_ColumnPropNameInRow="Puntos" msprop:Generator_ColumnPropNameInTable="PuntosColumn" msprop:Generator_ColumnVarNameInTable="columnPuntos" msprop:Generator_UserColumnName="Puntos" type="xs:int" minOccurs="0" />
+              <xs:element name="Goles" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Goles" msprop:Generator_ColumnPropNameInTable="GolesColumn" msprop:Generator_ColumnVarNameInTable="columnGoles" msprop:Generator_UserColumnName="Goles" type="xs:int" minOccurs="0" />
+              <xs:element name="Torneo" msprop:Generator_ColumnPropNameInRow="Torneo" msprop:Generator_ColumnPropNameInTable="TorneoColumn" msprop:Generator_ColumnVarNameInTable="columnTorneo" msprop:Generator_UserColumnName="Torneo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Temporada" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Temporada" msprop:Generator_ColumnPropNameInTable="TemporadaColumn" msprop:Generator_ColumnVarNameInTable="columnTemporada" msprop:Generator_UserColumnName="Temporada" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

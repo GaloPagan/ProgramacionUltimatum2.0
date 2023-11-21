@@ -1,5 +1,7 @@
 ﻿using EquipoProgramacionEPF.Dominio;
+using EquipoProgramacionEPF.Http;
 using EquipoProgramacionEPF.Servicios;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,10 +29,11 @@ namespace EquipoProgramacionEPF.Formulario
         {
         }
 
-        private void FrmJugador_Load(object sender, EventArgs e)
+        private async void FrmJugador_Load(object sender, EventArgs e)
         {
             CargarComboClubes();
             CargarComboPaises();
+            //CargarComboPaisesAsync();
             CargarComboPosiciones();
             
         }
@@ -47,6 +50,14 @@ namespace EquipoProgramacionEPF.Formulario
             cboPais.DataSource = ServicioDatos.GetPais();
             cboPais.DropDownStyle = ComboBoxStyle.DropDownList;
             
+        }
+        private async Task CargarComboPaisesAsync()
+        {
+            string url = "https://localhost:7163";
+            var data = await ClienteSingleton.GetInstance().GetAsync(url);
+            List<Pais> lPaises = JsonConvert.DeserializeObject<List<Pais>>(data);
+            cboPais.DataSource = lPaises;
+            cboPais.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void CargarComboClubes()
@@ -89,24 +100,24 @@ namespace EquipoProgramacionEPF.Formulario
                 MessageBox.Show("Debe ingresar un numero", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (dtpFecha.Value.Day != DateTime.Now.Day)
+            if (dtpFecha.Value.Day >= DateTime.Now.Day)
             {
                 MessageBox.Show("Debe ingresar una fecha que esté acorde", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            if (cboClub.SelectedIndex == 0)
+            if (cboClub.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe ingresar un club", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            if (cboPais.SelectedIndex == 0)
+            if (cboPais.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe ingresar un pais", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (cboPosicion.SelectedIndex == 0)
+            if (cboPosicion.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe ingresar una posicion", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -129,6 +140,13 @@ namespace EquipoProgramacionEPF.Formulario
             {
                 MessageBox.Show("no pudo confirmarse el Jugador!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("seguro que queres salir", "Salir", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            { Close(); }
         }
     }
 }

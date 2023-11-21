@@ -109,8 +109,6 @@ namespace EquipoProgProyecto
         {
             //PartidosReport report = new PartidosReport();
             //report.ShowDialog();
-            FrmReporte frmReportes = new FrmReporte();
-            frmReportes.ShowDialog();
         }
 
         private void nuevoToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -129,6 +127,31 @@ namespace EquipoProgProyecto
         {
             FrmConsultar consultar = new FrmConsultar(fabrica);
             consultar.ShowDialog();
+        }
+
+        private void tablaPosicionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRptPosiciones posi = new FrmRptPosiciones();
+            posi.ShowDialog();
+        }
+
+        private void goleadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRptGoleadores goles = new FrmRptGoleadores();
+            goles.ShowDialog();
+        }
+
+        private void partidosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmRptPartidos reppos = new FrmRptPartidos();
+            reppos.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("seguro que queres salir", "Salir", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            { Close(); }
         }
     }
 }

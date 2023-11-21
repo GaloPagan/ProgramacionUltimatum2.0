@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=DESKTOP-9AM41UI\SQLEXPRESS;Initial Catalog=ClubLaboratorioPresentacion;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="desktop-9am41ui\sqlexpress.ClubLaboratorioPresentacion.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ClubLaboratorioPresentacionConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ClubLaboratorioPresentacionConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.EquipoProgramacionEPF.Properties.Settings.GlobalReference.Default.ClubLaboratorioPresentacionConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="T_PartidosTableAdapter" GeneratorDataComponentClassName="T_PartidosTableAdapter" Name="T_Partidos" UserDataComponentName="T_PartidosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="desktop-9am41ui\sqlexpress.ClubLaboratorioPresentacion.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ClubLaboratorioPresentacionConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select IdPartido, Fecha, c.NombreClub, ca.NombreClub,
@@ -44,7 +44,7 @@ where p.id_temporada = t.IDTemporada</CommandText>
   <xs:element name="DSPartidos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DSPartidos" msprop:Generator_DataSetName="DSPartidos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_UserTableName="DataTable1">
+        <xs:element name="T_Partidos" msprop:Generator_RowEvHandlerName="T_PartidosRowChangeEventHandler" msprop:Generator_RowDeletedName="T_PartidosRowDeleted" msprop:Generator_RowDeletingName="T_PartidosRowDeleting" msprop:Generator_RowEvArgName="T_PartidosRowChangeEvent" msprop:Generator_TablePropName="T_Partidos" msprop:Generator_RowChangedName="T_PartidosRowChanged" msprop:Generator_RowChangingName="T_PartidosRowChanging" msprop:Generator_TableClassName="T_PartidosDataTable" msprop:Generator_RowClassName="T_PartidosRow" msprop:Generator_TableVarName="tableT_Partidos" msprop:Generator_UserTableName="T_Partidos">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdPartido" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="IdPartido" msprop:Generator_ColumnPropNameInTable="IdPartidoColumn" msprop:Generator_ColumnVarNameInTable="columnIdPartido" msprop:Generator_UserColumnName="IdPartido" type="xs:int" />
@@ -79,7 +79,7 @@ where p.id_temporada = t.IDTemporada</CommandText>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:selector xpath=".//mstns:T_Partidos" />
       <xs:field xpath="mstns:IdPartido" />
     </xs:unique>
   </xs:element>

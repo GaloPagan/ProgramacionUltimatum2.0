@@ -39,5 +39,9 @@ namespace EquipoProgramacionEPF.Fachada
         {
             return dao.EliminarPartido(oPartido);
         }
+        public List<Pais> GetPaises()
+        {
+            return dao.GetPais();
+        }
     }
 }

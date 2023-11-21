@@ -14,5 +14,6 @@ namespace EquipoProgramacionEPF.Fachada
         bool SavePartido(Partidos oPartido);
         bool ActualizarJugador(Jugador oJugador);
         bool DeletePartido(Partidos oPartido);
+        List<Pais> GetPaises();
     }
 }

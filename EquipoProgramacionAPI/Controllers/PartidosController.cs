@@ -10,16 +10,15 @@ namespace EquipoProgramacionAPI.Controllers
     public class PartidosController : ControllerBase
     {
         private IAplicacion app;
-
         public PartidosController()
         {
             app = new Aplicacion();
         }
 
         [HttpGet("/jugadores")]
-        public IActionResult GetJugadores(Jugador oJugador)
+        public IActionResult GetJugadores()
         {
-            List<Jugador> lst = null;
+            List<Jugador> lst = new List<Jugador>();
             try
             {
                 lst = app.GetJugadores();
@@ -27,6 +26,20 @@ namespace EquipoProgramacionAPI.Controllers
             }
             catch (Exception ex) 
             { 
+                return StatusCode(500, "Error interno, intente luego");
+            }
+        }
+        [HttpGet("/paises")]
+        public IActionResult GetPaises()
+        {
+            List<Pais> lPaises = new List<Pais>();
+            try
+            {
+                lPaises = app.GetPaises();
+                return Ok(lPaises);
+            }
+            catch (Exception ex)
+            {
                 return StatusCode(500, "Error interno, intente luego");
             }
         }

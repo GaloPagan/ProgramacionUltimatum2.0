@@ -24,7 +24,8 @@ namespace EquipoProgramacionEPF.Formulario
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            txtUsuario.Text = "administrador";
+            txtContra.Text = "12345678";
         }
 
         private void btnIngLog_Click(object sender, EventArgs e)
@@ -54,6 +55,11 @@ namespace EquipoProgramacionEPF.Formulario
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

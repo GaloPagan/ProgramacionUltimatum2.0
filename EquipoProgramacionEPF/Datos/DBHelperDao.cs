@@ -17,7 +17,7 @@ namespace EquipoProgramacionEPF.Datos
 
         public DBHelperDao()
         {
-            connection = new SqlConnection(@"Data Source=DESKTOP-9AM41UI\SQLEXPRESS;Initial Catalog=ClubLaboratorioPresentacion;Integrated Security=True");
+            connection = new SqlConnection(@"Data Source=DESKTOP-8C00J2S\ULTIMOSQL;Initial Catalog=ClubLaboratorioPresentacion;Integrated Security=True");
         }
 
         public static DBHelperDao getInstance()

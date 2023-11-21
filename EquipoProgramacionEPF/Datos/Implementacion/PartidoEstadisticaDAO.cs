@@ -229,7 +229,7 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
         {
             List<Jugador> lJugadores = new List<Jugador>();
 
-            DataTable dt = DBHelperDao.getInstance().ConsultarSP("ConsultarJugadores");
+            DataTable dt = DBHelperDao.getInstance().ConsultarSP("SP_CONSULTAR_JUGADOR");
             foreach (DataRow dr in dt.Rows)
             {
                 int Id = Convert.ToInt32(dr["IDjugador"]);

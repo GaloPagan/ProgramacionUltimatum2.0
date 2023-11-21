@@ -192,6 +192,11 @@ namespace EquipoProgramacionEPF
                 MessageBox.Show("Ingrese el club Visitante...", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if(int.Parse(txtTiempoJugado.Text)>150)
+            {
+                MessageBox.Show("Ingrese un tiempo valido...", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             foreach (DataGridViewRow dr in dgvEstadisticas.Rows)
             {
                 Jugador jug = (Jugador)cboJugador.SelectedItem;
@@ -218,6 +223,17 @@ namespace EquipoProgramacionEPF
             dgvEstadisticas.Rows.Add(new object[] { j.id,j.nom  ,Asi, gol, ama, roj, Tie, "Quitar" });
             auxEstadistica++;
             limpiar();
+            bloquear();
+        }
+
+        private void bloquear()
+        {
+            cboLocal.Enabled = false;
+            cboVisitante.Enabled = false;
+            cboTeporada.Enabled = false;
+            dtpFecha.Enabled = false;
+            txtGolesLoacal.Enabled = false;
+            txtGolesVisitante.Enabled=false;
         }
 
         private void limpiar()
@@ -227,13 +243,11 @@ namespace EquipoProgramacionEPF
             txtAmarillas.Text = "0";
             txtRoja.Text= "0";
             txtTiempoJugado.Text = "0";
-            cboJugador.SelectedIndex= 0;
-            txtGolesLoacal.Text = "0";
-            txtGolesVisitante.Text = "0";
-            txtGoles.Text = "0";
-            txtGolesVisitante.Text = "0";
-            cboLocal.SelectedIndex = -1;
-            cboVisitante.SelectedIndex = -1;
+            cboJugador.SelectedIndex= -1;
+           
+           
+         
+           
         }
 
         private void dgvEstadisticas_CellContentClick(object sender, DataGridViewCellEventArgs e)

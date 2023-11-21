@@ -125,5 +125,11 @@ namespace EquipoProgramacionEPF.Formulario
                 MessageBox.Show("no pudo actualizarse el Jugador!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("seguro que queres volver", "VOLVER", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            { Close(); }
+        }
     }
 }

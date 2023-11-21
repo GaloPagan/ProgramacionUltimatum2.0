@@ -79,5 +79,12 @@ namespace EquipoProgramacionEPF.Formulario
             int nro = Convert.ToInt32(dgvJugadores.CurrentRow.Cells["Columnid"].Value.ToString());
             new FrmEditar(fabrica, nro).ShowDialog();
         }
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("seguro que queres salir", "Salir", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            { Close(); }
+        }
     }
 }

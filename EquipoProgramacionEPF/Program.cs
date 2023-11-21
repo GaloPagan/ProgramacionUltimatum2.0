@@ -19,7 +19,8 @@ namespace EquipoProgramacionEPF
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal/*new FrmLogin*/(new FactoryServicioImp()));
+            Application.Run(new FrmLogin(new FactoryServicioImp()));
+           
 
         }
     }
