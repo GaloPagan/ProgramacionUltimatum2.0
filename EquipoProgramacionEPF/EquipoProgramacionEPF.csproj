@@ -66,7 +66,9 @@
   <ItemGroup>
     <Compile Include="Datos\DBHelperDao.cs" />
     <Compile Include="Datos\Implementacion\PartidoEstadisticaDAO.cs" />
+    <Compile Include="Datos\Implementacion\UsuarioDAO.cs" />
     <Compile Include="Datos\Interfaz\IDaoPartidoEstadistica.cs" />
+    <Compile Include="Datos\Interfaz\IUsuarioDAO.cs" />
     <Compile Include="Datos\Parametro.cs" />
     <Compile Include="Dominio\Club.cs" />
     <Compile Include="Dominio\EstadisticaPartido.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Dominio\Partido.cs" />
     <Compile Include="Dominio\Posicion.cs" />
     <Compile Include="Dominio\Temporada.cs" />
+    <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Fachada\Aplicacion.cs" />
     <Compile Include="Fachada\IAplicacion.cs" />
     <Compile Include="Formulario\FormPrincipal.cs">
@@ -83,11 +86,29 @@
     <Compile Include="Formulario\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\FrmConsultar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\FrmConsultar.designer.cs">
+      <DependentUpon>FrmConsultar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\FrmEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\FrmEditar.designer.cs">
+      <DependentUpon>FrmEditar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\FrmJugador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formulario\FrmJugador.Designer.cs">
       <DependentUpon>FrmJugador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\FrmLogin.designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario\FrmPartido.cs">
       <SubType>Form</SubType>
@@ -100,6 +121,12 @@
     </Compile>
     <Compile Include="Formulario\FrmReportes.Designer.cs">
       <DependentUpon>FrmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\FrmSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\FrmSignUp.designer.cs">
+      <DependentUpon>FrmSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,14 +143,26 @@
     <EmbeddedResource Include="Formulario\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\FrmConsultar.resx">
+      <DependentUpon>FrmConsultar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\FrmEditar.resx">
+      <DependentUpon>FrmEditar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formulario\FrmJugador.resx">
       <DependentUpon>FrmJugador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\FrmPartido.resx">
       <DependentUpon>FrmPartido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\FrmReportes.resx">
       <DependentUpon>FrmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\FrmSignUp.resx">
+      <DependentUpon>FrmSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -161,6 +200,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\soccer-background-and-template-football-game-vector-34780512.jpg" />
+    <Content Include="Resources\soccer-background-and-template-football-game-vector-347805121.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -11,7 +11,7 @@ namespace EquipoProgramacionEPF.Fachada
     {
         List<EstadisticaPartido> GetEstadisticasPartido();
         List<Jugador> GetJugadores();
-        int SavePartido(Partidos oPartido);
+        bool SavePartido(Partidos oPartido);
         bool ActualizarJugador(Jugador oJugador);
         bool DeletePartido(Partidos oPartido);
     }

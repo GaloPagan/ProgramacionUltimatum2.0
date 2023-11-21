@@ -1,4 +1,5 @@
-﻿using EquipoProgramacionEPF.Formulario;
+﻿using EquipoProgProyecto;
+using EquipoProgramacionEPF.Formulario;
 using EquipoProgramacionEPF.Servicios;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace EquipoProgramacionEPF
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal(new FactoryServicioImp()));
+            Application.Run(new FormPrincipal/*new FrmLogin*/(new FactoryServicioImp()));
 
         }
     }

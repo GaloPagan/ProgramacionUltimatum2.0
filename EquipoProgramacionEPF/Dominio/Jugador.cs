@@ -8,35 +8,40 @@ namespace EquipoProgramacionEPF.Dominio
 {
     public class Jugador
     {
-        public int id;
-        public string nom;
-        public string ape;
+        public int id { get; set; }
+        public string nom { get; set; } 
+        public string ape { get; set; }
 
         public int Numero { get; set; }
 
         public Pais pais { get; set; }
         public Posicion posicion { get; set; }
         public Club club { get; set; }
-        //public string Nombre { get; set; }
-        //public string Apellido { get; set; }
+       
         public DateTime FechaNacimiento { get; set; }
         public double Altura { get; set; }
         public double Peso { get; set; }
-        public int IdJugador { get; set; }
+       
 
+        //public Jugador()
+        //{
+        //    IdJugador = 0;
+        //    Peso = 0;
+        //    Altura = 0;
+        //    FechaNacimiento= DateTime.Now;
+        //    club = new Club();
+        //    pais = new Pais();
+        //    posicion = new Posicion();
+        //    Numero = 0;
+        //    nom = string.Empty;
+        //    ape = string.Empty;
+
+        //}
         public Jugador()
         {
-            IdJugador = 0;
-            Peso = 0;
-            Altura = 0;
-            FechaNacimiento= DateTime.Now;
-            club = new Club();
-            pais = new Pais();
-            posicion = new Posicion();
-            Numero = 0;
             nom = string.Empty;
             ape = string.Empty;
-
+            id = 0;
         }
 
         public Jugador( int num, Pais pa, Posicion po, Club cl, string nom, string ap, DateTime dat, double alt, double pe)
@@ -54,7 +59,7 @@ namespace EquipoProgramacionEPF.Dominio
         }
         public Jugador(int ID, int num, Pais pa, Posicion po, Club cl, string nom, string ap, DateTime dat, double alt, double pe)
         {
-            IdJugador = ID;
+            id = ID;
             Numero = num;
             pais = pa;
             posicion = po;
@@ -68,7 +73,7 @@ namespace EquipoProgramacionEPF.Dominio
 
         public Jugador(int id, string nom, string ape, int num)
         {
-            IdJugador = id;
+            this.id = id;
             this.nom= nom;
             this.nom = ape;
             Numero = num;

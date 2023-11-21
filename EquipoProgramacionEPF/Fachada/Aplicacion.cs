@@ -27,7 +27,7 @@ namespace EquipoProgramacionEPF.Fachada
             return dao.GetJugadores();
         }
 
-        public int SavePartido(Partidos oPartido)
+        public bool SavePartido(Partidos oPartido)
         {
             return dao.Crear(oPartido);
         }

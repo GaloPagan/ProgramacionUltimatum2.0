@@ -15,15 +15,33 @@ namespace EquipoProgramacionEPF
 {
     public partial class FrmPartido : Form
     {
-        FactoryServicioImp fabrica = null;
+        //FactoryServicioImp fabrica = null;
+       
+        //Jugador Jugador = null;
+        Partidos NuevoPartido = null;
         IServicio ServicioDatos = null;
-        Jugador Jugador = null;
-        Partidos NuevoPartido = null; 
-        public FrmPartido(FactoryServicioImp fabrica)
+        int auxEstadistica;
+        
+       
+        
+        //public FrmPartido(FactoryServicioImp fabrica)
+        //{
+        //    InitializeComponent();
+        //    ServicioDatos = fabrica.GetServicio();
+        //    NuevoPartido= new Partidos();
+        //    auxEstadistica = 1;
+
+
+
+        //}
+        public FrmPartido(FactoryServicio fabrica)
         {
             InitializeComponent();
             ServicioDatos = fabrica.GetServicio();
-            NuevoPartido= new Partidos();
+            NuevoPartido = new Partidos();
+            auxEstadistica = 1;
+
+
 
         }
 
@@ -37,7 +55,7 @@ namespace EquipoProgramacionEPF
             CargarComboVisitante();
             CargarCombotemporada();
             CargarComboJugadores();
-           
+
 
             Inicializar();
 
@@ -56,6 +74,7 @@ namespace EquipoProgramacionEPF
             txtRoja.Text = "0";
             txtAmarillas.Text = "0";
             txtTiempoJugado.Text = "0";
+            cboJugador.SelectedIndex = -1;
         }
 
         private void CargarComboJugadores()
@@ -90,24 +109,42 @@ namespace EquipoProgramacionEPF
         }
         private void GrabarPartido()
         {
+
+            NuevoPartido.GolesLocal =3;
+            NuevoPartido.GolesVisitante = 2;
+            NuevoPartido.FechaPartido =DateTime.Now;
+            NuevoPartido.TemporadaPartido = (Temporada)cboTeporada.SelectedItem;
+            NuevoPartido.ClubLocal.Id = 3;
+            NuevoPartido.ClubVisitante.Id = 2;
+           
             
-            NuevoPartido.GolesLocal = Convert.ToInt32(txtGolesLoacal.Text);
-            NuevoPartido.GolesVisitante = Convert.ToInt32(txtGolesVisitante.Text);
-            NuevoPartido.FechaPartido = Convert.ToDateTime(dtpFecha.Value);
-            NuevoPartido.TemporadaPartido.codigo = Convert.ToInt32(cboTeporada.SelectedItem);
-            NuevoPartido.Local = Convert.ToInt32(cboLocal.SelectedItem);
-            NuevoPartido.TemporadaPartido.codigo = Convert.ToInt32(cboTeporada.SelectedItem);
-            NuevoPartido.Visitante = Convert.ToInt32(cboVisitante.SelectedItem);
+            //NuevoPartido.GolesLocal = Convert.ToInt32(txtGolesLoacal.Text);
+            //NuevoPartido.GolesVisitante = Convert.ToInt32(txtGolesVisitante.Text);
+            //NuevoPartido.FechaPartido = Convert.ToDateTime(dtpFecha.Value);
+
+            //NuevoPartido.temporada = int.Parse(cboTeporada.SelectedItem.ToString());
+            //NuevoPartido.ClubLocal.Id = Convert.ToInt32(cboLocal.SelectedValue);
+            //NuevoPartido.ClubVisitante.Id = Convert.ToInt32(cboVisitante.SelectedValue);
+            //Temporada t = (Temporada)cboTeporada.SelectedItem;
+            //Club clubLocal=(Club)cboLocal.SelectedItem;
+            //Club clubVis=(Club)cboVisitante.SelectedItem;
+
+            //NuevoPartido.ClubLocal = (Club)cboLocal.SelectedItem;
+            //NuevoPartido.ClubVisitante = (Club)cboVisitante.SelectedItem;
+           
 
 
 
 
-            int nroPartido = ServicioDatos.Crear(NuevoPartido);
-            if (nroPartido > 0)
+
+
+
+            if (ServicioDatos.Crear(NuevoPartido))
+            
             {
                 MessageBox.Show("Se registro con exito el partido", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                NuevoPartido = new Partidos();
+                this.Dispose();
             }
             else
             {
@@ -129,9 +166,24 @@ namespace EquipoProgramacionEPF
                 MessageBox.Show("Ingrese un Jugador...", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+            if (txtTiempoJugado.Text=="0")
+            {
+                MessageBox.Show("Ingrese un Tiempo Jugado...", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(cboLocal.SelectedIndex == -1)
+            {
+                MessageBox.Show("Ingrese el club Local...", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (cboVisitante.SelectedIndex == -1)
+            {
+                MessageBox.Show("Ingrese el club Visitante...", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             foreach (DataGridViewRow dr in dgvEstadisticas.Rows)
             {
+                Jugador jug = (Jugador)cboJugador.SelectedItem;
                 if (dr.Cells["ColJugador"].Value.ToString().Equals(cboJugador.SelectedItem.ToString()))
                 {
                     MessageBox.Show("Este Jugador ya se Agregó...", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -139,20 +191,21 @@ namespace EquipoProgramacionEPF
                 }
             }
 
-            Jugador j = (Jugador)cboJugador.SelectedItem;
 
+            Jugador j = (Jugador)cboJugador.SelectedItem;
             int ama = Convert.ToInt32(txtAmarillas.Text);
             int roj = Convert.ToInt32(txtRoja.Text);
             int gol = Convert.ToInt32(txtGoles.Text);
             int Asi = Convert.ToInt32(txtAsiis.Text);
             int Tie = Convert.ToInt32(txtTiempoJugado.Text);
+            
 
             EstadisticaPartido estadistica = new EstadisticaPartido(j, Asi, gol, ama, roj, Tie);
 
             NuevoPartido.AddEstadistica(estadistica);
 
-            dgvEstadisticas.Rows.Add(new object[] { j.IdJugador,  Asi, gol, ama, roj, Tie, "Quitar" });
-
+            dgvEstadisticas.Rows.Add(new object[] { j.id,j.nom  ,Asi, gol, ama, roj, Tie, "Quitar" });
+            auxEstadistica++;
             limpiar();
         }
 
@@ -174,7 +227,7 @@ namespace EquipoProgramacionEPF
 
         private void dgvEstadisticas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvEstadisticas.CurrentCell.ColumnIndex == 6)
+            if (dgvEstadisticas.CurrentCell.ColumnIndex == 7)
             {
                 NuevoPartido.RemoveEstadistica(dgvEstadisticas.CurrentRow.Index);
                 dgvEstadisticas.Rows.RemoveAt(dgvEstadisticas.CurrentRow.Index);

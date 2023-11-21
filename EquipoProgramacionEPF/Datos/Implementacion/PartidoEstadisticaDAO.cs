@@ -12,73 +12,175 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
 {
     internal class PartidoEstadisticaDAO : IDaoPartidoEstadistica
     {
-        
-        
-        public int Crear(Partidos partidos)
+
+
+        //public bool Crear(Partidos partidos)
+        //{
+        //    SqlConnection connection = DBHelperDao.getInstance().GetConnection();
+        //    SqlTransaction t = null;
+        //    bool aux = true;
+        //    Club club=new Club();
+        //    Temporada temporada = new Temporada();
+
+        //    //try
+        //    //{
+        //        connection.Open();
+        //        t = connection.BeginTransaction();
+        //        SqlCommand sqlCommand = new SqlCommand("SP_InsertarPartido", connection, t);
+        //        sqlCommand.CommandType = CommandType.StoredProcedure;
+
+
+        //        //SqlParameter parameter = new SqlParameter("@SP_PROXIMO_ID", SqlDbType.Int);
+
+        //        //    parameter.Direction = ParameterDirection.Output;
+        //        //    sqlCommand.Parameters.Add(parameter);
+
+
+
+
+
+        //      //sqlCommand.Parameters.AddWithValue("@IDPartido", partidos.IdPartido);
+
+        //        sqlCommand.Parameters.AddWithValue("@Fecha", partidos.FechaPartido);
+
+        //    sqlCommand.Parameters.AddWithValue("@Adversario", partidos.ClubVisitante.Id);
+        //    sqlCommand.Parameters.AddWithValue("@equipoLocal", partidos.ClubLocal.Id);
+        //    sqlCommand.Parameters.AddWithValue("@id_temporada", partidos.TemporadaPartido.idTemporada);
+        //    sqlCommand.Parameters.AddWithValue("@goles_local", partidos.GolesLocal);
+        //    sqlCommand.Parameters.AddWithValue("@goles_visitantes", partidos.GolesVisitante);
+        //    sqlCommand.Parameters.AddWithValue("@Adversario", partidos.ClubVisitante.Id);
+        //    sqlCommand.Parameters.AddWithValue("@equipoLocal", partidos.ClubLocal.Id);
+
+
+
+        //    sqlCommand.ExecuteNonQuery();
+
+
+
+        //        //int NroPartido=(int)parameter.Value;
+        //        int i = 1;
+        //        SqlCommand cmdEstadistica;
+
+        //        foreach (EstadisticaPartido e in partidos.lEstadisticaPartidos)
+        //        {
+        //            cmdEstadistica = new SqlCommand("SP_INSERTAR_ESTADISTICAS", connection, t);
+        //            cmdEstadistica.CommandType = CommandType.StoredProcedure;
+        //            //cmdEstadistica.Parameters.AddWithValue("@IDPartido", NroPartido);
+        //            cmdEstadistica.Parameters.AddWithValue("@ID_estadistica", i);
+        //            cmdEstadistica.Parameters.AddWithValue("@IDJUGADOR", e.Jugador.id);
+        //            cmdEstadistica.Parameters.AddWithValue("@goles", e.Goles);
+        //            cmdEstadistica.Parameters.AddWithValue("@asistencias", e.Asistencias);
+        //            cmdEstadistica.Parameters.AddWithValue("@amarillas", e.Amarillas);
+        //            cmdEstadistica.Parameters.AddWithValue("@rojas", e.Rojas);
+        //            cmdEstadistica.Parameters.AddWithValue("@TiempoJugado", e.TiempoJugado);
+
+        //            //cmdEstadistica.Parameters.AddWithValue("@IDPartido", partidos.IdPartido);
+
+        //            cmdEstadistica.ExecuteNonQuery();
+        //            i++;
+
+        //        }
+        //        t.Commit();
+
+        //    //}
+        //    //catch
+        //    //{
+        //    //    if (t != null) t.Rollback();
+        //    //}
+        //    //finally
+        //    //{
+        //    //    if (connection != null && connection.State == ConnectionState.Open) { connection.Close(); }
+        //    //}
+        //    connection.Close();
+        //    return aux;
+        //}
+        public bool Crear(Partidos partidos)
         {
             SqlConnection connection = DBHelperDao.getInstance().GetConnection();
             SqlTransaction t = null;
-            int PartidoNro = 0;
-            Temporada temporada = null;
+            bool aux = true;
 
             try
             {
                 connection.Open();
                 t = connection.BeginTransaction();
-                SqlCommand sqlCommand = new SqlCommand("InsertarPartido", connection, t);
+               
+               
+
+                // 2. Crear el Club Visitante (supongamos que ya tienes un objeto Club con la información necesaria)
+              
+                SqlCommand sqlCommand = new SqlCommand("SP_InsertarPartido", connection, t);
                 sqlCommand.CommandType = CommandType.StoredProcedure;
 
                 sqlCommand.Parameters.AddWithValue("@Fecha", partidos.FechaPartido);
-                sqlCommand.Parameters.AddWithValue("@EquipoLocal", partidos.Local);
-                sqlCommand.Parameters.AddWithValue("@Adversario", partidos.Visitante);
-                sqlCommand.Parameters.AddWithValue("@id_temporada", partidos.TemporadaPartido.codigo);
+                sqlCommand.Parameters.AddWithValue("@Adversario", partidos.ClubVisitante.Id);
+                sqlCommand.Parameters.AddWithValue("@equipoLocal", partidos.ClubLocal.Id);
+                sqlCommand.Parameters.AddWithValue("@id_temporada", partidos.TemporadaPartido.idTemporada);
                 sqlCommand.Parameters.AddWithValue("@goles_local", partidos.GolesLocal);
                 sqlCommand.Parameters.AddWithValue("@goles_visitantes", partidos.GolesVisitante);
 
-                SqlParameter parameter = new SqlParameter();
-                parameter.ParameterName = "@IDPartido";
-                parameter.SqlDbType = SqlDbType.Int;
-                parameter.Direction = ParameterDirection.Output;
-                sqlCommand.Parameters.Add(parameter);
-
                 sqlCommand.ExecuteNonQuery();
 
-                PartidoNro = Convert.ToInt32(parameter.Value);
-
-
-                int NroEstadisticaPartido = 1;
+                int i = 1;
                 SqlCommand cmdEstadistica;
 
                 foreach (EstadisticaPartido e in partidos.lEstadisticaPartidos)
                 {
-                    cmdEstadistica = new SqlCommand("InsertarEstadistica", connection, t);
+                    cmdEstadistica = new SqlCommand("SP_INSERTAR_ESTADISTICAS", connection, t);
                     cmdEstadistica.CommandType = CommandType.StoredProcedure;
-                    cmdEstadistica.Parameters.AddWithValue("@IDPartido", PartidoNro);
-                    cmdEstadistica.Parameters.AddWithValue("@IDJUGADOR", e.Jugador.IdJugador);
-                    cmdEstadistica.Parameters.AddWithValue("@goles", partidos.IdPartido);
-                    cmdEstadistica.Parameters.AddWithValue("@asistencias", partidos.IdPartido);
-                    cmdEstadistica.Parameters.AddWithValue("@amarillas", partidos.IdPartido);
-                    cmdEstadistica.Parameters.AddWithValue("@rojas", partidos.IdPartido);
-                    cmdEstadistica.Parameters.AddWithValue("@TiempoJugado", partidos.IdPartido);
-                    cmdEstadistica.Parameters.AddWithValue("@ID_estadistica", NroEstadisticaPartido);
+
+                    cmdEstadistica.Parameters.AddWithValue("@ID_estadistica", i);
+                    cmdEstadistica.Parameters.AddWithValue("@IDJUGADOR", e.Jugador.id);
+                    cmdEstadistica.Parameters.AddWithValue("@goles", e.Goles);
+                    cmdEstadistica.Parameters.AddWithValue("@asistencias", e.Asistencias);
+                    cmdEstadistica.Parameters.AddWithValue("@amarillas", e.Amarillas);
+                    cmdEstadistica.Parameters.AddWithValue("@rojas", e.Rojas);
+                    cmdEstadistica.Parameters.AddWithValue("@TiempoJugado", e.TiempoJugado);
 
                     cmdEstadistica.ExecuteNonQuery();
-                    NroEstadisticaPartido++;
-
+                    i++;
                 }
+
                 t.Commit();
             }
-            catch
+            catch (Exception ex)
             {
-                if (t != null) t.Rollback();
+                if (t != null)
+                {
+                    t.Rollback();
+                    aux = false;
+                }
+                // Manejar la excepción o registrarla según sea necesario.
             }
             finally
             {
-                if (connection != null && connection.State == ConnectionState.Open) { connection.Close(); }
+                if (connection != null && connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
             }
-            return PartidoNro;
-        }
 
+            return aux;
+        }
+        private int CrearClub(SqlConnection connection, SqlTransaction t, Club club)
+        {
+            SqlCommand sqlCommand = new SqlCommand("SP_CrearClub", connection, t);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+            // Configura los parámetros del stored procedure con los valores del club
+           
+            // Otros parámetros según tus necesidades
+
+            // Agrega un parámetro de salida para obtener el ID del club recién creado
+            SqlParameter parameterIdClub = new SqlParameter("@IDClub", SqlDbType.Int);
+            parameterIdClub.Direction = ParameterDirection.Output;
+            sqlCommand.Parameters.Add(parameterIdClub);
+
+            sqlCommand.ExecuteNonQuery();
+
+            // Obtiene el ID del club recién creado
+            return Convert.ToInt32(parameterIdClub.Value);
+        }
         public DataTable GetDT(string nombreSP)
         {
             return DBHelperDao.getInstance().ConsultarSP(nombreSP);
@@ -193,8 +295,12 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
             foreach (DataRow fila in tabla.Rows)
             {
                 int codigo = int.Parse(fila["IDTemporada"].ToString());
-                int temporada = int.Parse(fila["AnioInicio"].ToString());
-                Temporada t = new Temporada(codigo, temporada);
+                int AnioInicio = int.Parse(fila["AnioInicio"].ToString());
+                int categoria = int.Parse(fila["IDCategoria"].ToString());
+                int AnioFin= int.Parse(fila["ANIOFIN"].ToString());
+                int torneo= int.Parse(fila["id_torneo"].ToString());
+
+                Temporada t = new Temporada(codigo, AnioInicio, AnioFin,  torneo,  categoria);
                 lTemporadas.Add(t);
             }
             return lTemporadas;
@@ -254,7 +360,7 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
             conn.Open();
             SqlCommand comando = new SqlCommand("SP_ACTUALIZAR_JUGADOR", conn, t);
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IDJugador", oJugador.IdJugador);
+            comando.Parameters.AddWithValue("@IDJugador", oJugador.id);
             comando.Parameters.AddWithValue("@Nombre", oJugador.nom);
             comando.Parameters.AddWithValue("@Apellido", oJugador.ape);
             comando.Parameters.AddWithValue("@Club", oJugador.club.Id);
@@ -283,8 +389,119 @@ namespace EquipoProgramacionEPF.Datos.Implementacion
             return resultado;
         }
 
+        public List<Jugador> TraerJugadores(List<Parametro> lParams, string nombreSP)
+        {
+            DataTable tabla = DBHelperDao.getInstance().Consultar(nombreSP, lParams);
+            List<Jugador> lJugador = new List<Jugador>();
+            Club club = new Club();
+            foreach (DataRow r in tabla.Rows)
+            {
+                int id = int.Parse(r["IDJugador"].ToString());
+                string nombre = r["Nombre"].ToString();
+                string Apellido = r["Apellido"].ToString();
+                lJugador.Add(new Jugador(id, nombre, Apellido));
+            }
+            return lJugador;
+        }
+        public Jugador TraerJugador(int nroJugador)
+        {
+            Jugador jugador = new Jugador();
+            SqlConnection conexion = DBHelperDao.getInstance().GetConnection();
+            SqlCommand comando = new SqlCommand();
+            conexion.Open();
+            comando.Connection = conexion;
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SP_CONSULTAR_JUGADOR";
+            Parametro param = new Parametro("@IDJugador", nroJugador);
+            comando.Parameters.AddWithValue(param.Nombre, param.Valor);
+            DataTable tabla = new DataTable();
+            tabla.Load(comando.ExecuteReader());
+            conexion.Close();
+            jugador.id = nroJugador;
+            foreach (DataRow fila in tabla.Rows)
+            {
+                jugador.nom = fila["Nombre"].ToString();
+                jugador.ape = fila["Apellido"].ToString();
+            }
 
+            return jugador;
+        }
+        public bool ActualizarJugador(Jugador oJugador)
+        {
+            bool aux = true;
+            //Creamos la transaccion como nula
+            SqlTransaction transaccion = null;
+            SqlConnection conexion = DBHelperDao.getInstance().GetConnection();
+            try
+            {
+                conexion.Open();
+                //Abro la conexion y despues abro la transaccion bajo esa conexion!
+                transaccion = conexion.BeginTransaction();
+                //Al crear el comando le pasamos x parametro: el string del comando, la conexion y la transaccion
 
+                SqlCommand comando = new SqlCommand("SP_ACTUALIZAR_JUGADOR", conexion, transaccion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@IDJugador", oJugador.id);
+                comando.Parameters.AddWithValue("@Nombre", oJugador.nom);
+                comando.Parameters.AddWithValue("@Apellido", oJugador.ape);
+                comando.Parameters.AddWithValue("@Club", oJugador.club.Id);
+                comando.Parameters.AddWithValue("@Posicion", oJugador.posicion.idPosicion);
+                comando.Parameters.AddWithValue("@NumeroCamiseta", oJugador.Numero);
+                comando.Parameters.AddWithValue("@Nacionalidad", oJugador.pais.IdPais);
+                comando.Parameters.AddWithValue("@FechaNacimiento", oJugador.FechaNacimiento);
+                comando.Parameters.AddWithValue("@Altura", oJugador.Altura);
+                comando.Parameters.AddWithValue("@Peso", oJugador.Peso);
+                comando.ExecuteNonQuery();
+                transaccion.Commit();
+            }
+            catch
+            {
+                if (transaccion != null)
+                {
+                    transaccion.Rollback();
+                    aux = false;
+                }
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return aux;
+        }
+        public bool BorrarJugador(int nroJugador)
+        {
+            bool aux = true;
+            SqlConnection conexion = DBHelperDao.getInstance().GetConnection();
+            SqlTransaction transaccion = null;
+            try
+            {
+                conexion.Open();
+                transaccion = conexion.BeginTransaction();
+                SqlCommand comando = new SqlCommand("SP_BORRAR_JUGADOR", conexion, transaccion);
+                comando.CommandType = CommandType.StoredProcedure;
+                Parametro param = new Parametro("@IDJugador", nroJugador);
+                comando.Parameters.AddWithValue(param.Nombre, param.Valor);
+                comando.ExecuteNonQuery();
+                transaccion.Commit();
+            }
+            catch
+            {
+                if (transaccion != null)
+                {
+                    transaccion.Rollback();
+                    aux = false;
+                }
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                    conexion.Close();
+            }
+            return aux;
+        }
     }
 }
 

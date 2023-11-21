@@ -15,34 +15,30 @@ namespace EquipoProgramacionEPF.Dominio
         public Club ClubLocal { get; set; }
         public Club ClubVisitante { get; set; }
         public Temporada TemporadaPartido { get; set; }
+     
         public List<EstadisticaPartido> lEstadisticaPartidos { get; set; }
 
-        public int Local { get; set; }
-        public int Visitante { get; set; }
-        public int Temporada { get; set; }
+       
         public Partidos()
         {
-            FechaPartido = DateTime.Now;
-            GolesLocal = 0;
-            GolesVisitante = 0;
+            lEstadisticaPartidos = new List<EstadisticaPartido>();
+            TemporadaPartido = new Temporada();
             ClubLocal = new Club();
             ClubVisitante = new Club();
-            lEstadisticaPartidos = new List<EstadisticaPartido>();
-            IdPartido = 0;
         }
-
-        public Partidos(DateTime fec, int GolLoc,int GolVis, int  loc, int vis, int tem)
+        public Partidos(Temporada tem, Club loc, Club vis, DateTime fec, int gLoc, int gVis)
         {
-            fec = FechaPartido;
-            GolLoc = GolesLocal;
-            GolVis = GolesVisitante;
-            loc = Local;
-            vis = Visitante;
-            tem = Temporada;
-            
-            
-        }
+            lEstadisticaPartidos=new List<EstadisticaPartido>();
+            TemporadaPartido = tem;
+            ClubLocal =loc;
+            ClubVisitante =vis;
+            FechaPartido = fec;
+            GolesLocal = gLoc;
+            GolesVisitante = gVis;
 
+
+
+        }
         public void AddEstadistica(EstadisticaPartido estadistica)
         {
             lEstadisticaPartidos.Add(estadistica);
@@ -51,6 +47,11 @@ namespace EquipoProgramacionEPF.Dominio
         public void RemoveEstadistica(int index)
         {
             lEstadisticaPartidos.RemoveAt(index);
+        }
+
+        public override string ToString()
+        {
+            return IdPartido.ToString();
         }
     }
 }

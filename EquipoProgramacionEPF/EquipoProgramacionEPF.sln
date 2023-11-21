@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipoProgramacionEPF", "EquipoProgramacionEPF.csproj", "{18A66212-FDF8-4F51-8AC4-E3A3A94B16E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipoProgramacionAPI", "..\EquipoProgramacionAPI\EquipoProgramacionAPI.csproj", "{FD17D9B1-8EFF-4FDD-BED3-0C2643465A8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquipoProgramacionAPI", "..\EquipoProgramacionAPI\EquipoProgramacionAPI.csproj", "{FD17D9B1-8EFF-4FDD-BED3-0C2643465A8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

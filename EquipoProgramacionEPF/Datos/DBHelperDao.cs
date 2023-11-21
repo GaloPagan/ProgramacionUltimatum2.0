@@ -17,7 +17,7 @@ namespace EquipoProgramacionEPF.Datos
 
         public DBHelperDao()
         {
-            connection = new SqlConnection(@"Data Source=DESKTOP-8C00J2S\ULTIMOSQL;Initial Catalog=ClubPrograIIOficial;Integrated Security=True");
+            connection = new SqlConnection(@"Data Source=DESKTOP-8C00J2S\ULTIMOSQL;Initial Catalog=ClubLaboratorioPresentacion;Integrated Security=True");
         }
 
         public static DBHelperDao getInstance()
@@ -54,6 +54,22 @@ namespace EquipoProgramacionEPF.Datos
 
             connection.Close();
             return dt;
+        }
+        public DataTable Consultar(string nombreSP, List<Parametro> lParams)
+        {
+            connection.Open();
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = connection;
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = nombreSP;
+            foreach (Parametro p in lParams)
+            {
+                comando.Parameters.AddWithValue(p.Nombre, p.Valor);
+            }
+            DataTable tabla = new DataTable();
+            tabla.Load(comando.ExecuteReader());
+            connection.Close();
+            return tabla;
         }
     }
 }

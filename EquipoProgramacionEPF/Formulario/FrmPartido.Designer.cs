@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPartido));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,14 +62,15 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnAGREGAR = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.ColJugador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColJugadorNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAsistencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColGoles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAmarilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColRojas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstadisticas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -256,6 +257,7 @@
             this.dgvEstadisticas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEstadisticas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColJugador,
+            this.ColJugadorNombre,
             this.ColAsistencias,
             this.ColGoles,
             this.ColAmarilla,
@@ -401,18 +403,35 @@
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(162, 505);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(605, 75);
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
             // ColJugador
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ColJugador.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ColJugador.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColJugador.HeaderText = "Jugador";
             this.ColJugador.MinimumWidth = 6;
             this.ColJugador.Name = "ColJugador";
             this.ColJugador.ReadOnly = true;
             this.ColJugador.Width = 125;
+            // 
+            // ColJugadorNombre
+            // 
+            this.ColJugadorNombre.HeaderText = "Nombre Jugador";
+            this.ColJugadorNombre.MinimumWidth = 6;
+            this.ColJugadorNombre.Name = "ColJugadorNombre";
+            this.ColJugadorNombre.ReadOnly = true;
+            this.ColJugadorNombre.Width = 125;
             // 
             // ColAsistencias
             // 
@@ -461,15 +480,6 @@
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.ReadOnly = true;
             this.btnBorrar.Width = 145;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(162, 505);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(605, 75);
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
             // 
             // FrmPartido
             // 
@@ -555,14 +565,15 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnAGREGAR;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColJugador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColJugadorNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAsistencias;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColGoles;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAmarilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRojas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTiempo;
         private System.Windows.Forms.DataGridViewButtonColumn btnBorrar;
-        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

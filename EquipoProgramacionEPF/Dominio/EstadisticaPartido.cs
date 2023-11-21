@@ -8,7 +8,7 @@ namespace EquipoProgramacionEPF.Dominio
 {
     public class EstadisticaPartido
     {
-        public int Partido { get; set; }
+        //public int Partido { get; set; }
         public Jugador Jugador { get; set; }
         public int Goles { get; set; }
         public int Asistencias { get; set; }
@@ -16,16 +16,16 @@ namespace EquipoProgramacionEPF.Dominio
         public int Rojas { get; set; }
         public double TiempoJugado { get; set; }
       
-        public EstadisticaPartido(int partido, int jugador, int goles, int asistencias, int amarillas, int rojas, double tiempoJugado)
-        {
-            Partido = partido;
+        //public EstadisticaPartido(/*int partido,*/ int jugador, int goles, int asistencias, int amarillas, int rojas, double tiempoJugado)
+        //{
+        //    //Partido = partido;
             
-            Goles = goles;
-            Asistencias = asistencias;
-            Amarillas = amarillas;
-            Rojas = rojas;
-            TiempoJugado = tiempoJugado;
-        }
+        //    Goles = goles;
+        //    Asistencias = asistencias;
+        //    Amarillas = amarillas;
+        //    Rojas = rojas;
+        //    TiempoJugado = tiempoJugado;
+        //}
 
         public EstadisticaPartido()
         {

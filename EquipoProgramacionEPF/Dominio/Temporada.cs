@@ -8,12 +8,12 @@ namespace EquipoProgramacionEPF.Dominio
 {
     public class Temporada
     {
-        public int codigo {  get; set; }
-        public int temporada { get; set; }
-
+        
+        
+        public int idTemporada { get; set; }
         public int Categoria { get; set; }
-        public int AgnoInicio { get; set; }
-        public int AgnoFin { get; set; }
+        public int AnioInicio { get; set; }
+        public int AnioFin { get; set; }
         public int Torneo { get; set; }
         public Temporada()
         {
@@ -22,19 +22,22 @@ namespace EquipoProgramacionEPF.Dominio
         public Temporada(int categoria, int agnoInicio, int agnoFin, int torneo)
         {
             Categoria = categoria;
-            AgnoInicio = agnoInicio;
-            AgnoFin = agnoFin;
+            AnioInicio = agnoInicio;
+            AnioFin = agnoFin;
             Torneo = torneo;
         }
 
-        public Temporada(int codigo, int temporada)
+        public Temporada(int codigo, int aniInicio, int anioFin, int torneo, int categoria)
         {
-            this.codigo = codigo;
-            int anioInicio;
+            this.idTemporada = codigo;
+            this.AnioInicio=aniInicio;
+            this.AnioFin = anioFin;
+            this.Torneo = torneo;
+            this.Categoria = categoria;
         }
         public override string ToString()
         {
-            return codigo+" "+AgnoInicio.ToString();
+            return AnioInicio.ToString();
         }
     }
 }

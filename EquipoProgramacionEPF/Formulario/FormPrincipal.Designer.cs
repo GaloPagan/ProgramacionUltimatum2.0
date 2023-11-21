@@ -1,4 +1,7 @@
-﻿namespace EquipoProgramacionEPF.Formulario
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace EquipoProgProyecto
 {
     partial class FormPrincipal
     {
@@ -28,149 +31,135 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.partidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoPartidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.partidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.partidoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoPartidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.jugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vERREPORTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.partidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip2.SuspendLayout();
-            this.contextMenuStrip3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.partidoToolStripMenuItem,
-            this.nuevoPartidoToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(173, 52);
-            // 
-            // partidoToolStripMenuItem
-            // 
-            this.partidoToolStripMenuItem.Name = "partidoToolStripMenuItem";
-            this.partidoToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
-            this.partidoToolStripMenuItem.Text = "Partido";
-            // 
-            // nuevoPartidoToolStripMenuItem
-            // 
-            this.nuevoPartidoToolStripMenuItem.Name = "nuevoPartidoToolStripMenuItem";
-            this.nuevoPartidoToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
-            this.nuevoPartidoToolStripMenuItem.Text = "Nuevo Partido";
-            // 
-            // contextMenuStrip3
-            // 
-            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.partidoToolStripMenuItem1});
-            this.contextMenuStrip3.Name = "contextMenuStrip3";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(126, 28);
-            // 
-            // partidoToolStripMenuItem1
-            // 
-            this.partidoToolStripMenuItem1.Name = "partidoToolStripMenuItem1";
-            this.partidoToolStripMenuItem1.Size = new System.Drawing.Size(125, 24);
-            this.partidoToolStripMenuItem1.Text = "Partido";
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.partidoToolStripMenuItem2,
-            this.jugadorToolStripMenuItem,
-            this.rEPORTEToolStripMenuItem});
+            this.ayudaToolStripMenuItem,
+            this.jugadoresToolStripMenuItem,
+            this.partidosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
-            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // partidoToolStripMenuItem2
+            // ayudaToolStripMenuItem
             // 
-            this.partidoToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoPartidoToolStripMenuItem1});
-            this.partidoToolStripMenuItem2.Name = "partidoToolStripMenuItem2";
-            this.partidoToolStripMenuItem2.Size = new System.Drawing.Size(70, 24);
-            this.partidoToolStripMenuItem2.Text = "Partido";
+            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirToolStripMenuItem});
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
-            // nuevoPartidoToolStripMenuItem1
+            // salirToolStripMenuItem
             // 
-            this.nuevoPartidoToolStripMenuItem1.Name = "nuevoPartidoToolStripMenuItem1";
-            this.nuevoPartidoToolStripMenuItem1.Size = new System.Drawing.Size(186, 26);
-            this.nuevoPartidoToolStripMenuItem1.Text = "Nuevo Partido";
-            this.nuevoPartidoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoPartidoToolStripMenuItem1_Click);
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
+            this.salirToolStripMenuItem.Text = "Salir";
             // 
-            // jugadorToolStripMenuItem
+            // jugadoresToolStripMenuItem
             // 
-            this.jugadorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoJugadorToolStripMenuItem});
-            this.jugadorToolStripMenuItem.Name = "jugadorToolStripMenuItem";
-            this.jugadorToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
-            this.jugadorToolStripMenuItem.Text = "Jugador";
+            this.jugadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoToolStripMenuItem1,
+            this.editarToolStripMenuItem,
+            this.consultarToolStripMenuItem});
+            this.jugadoresToolStripMenuItem.Name = "jugadoresToolStripMenuItem";
+            this.jugadoresToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.jugadoresToolStripMenuItem.Text = "Jugadores";
             // 
-            // nuevoJugadorToolStripMenuItem
+            // nuevoToolStripMenuItem1
             // 
-            this.nuevoJugadorToolStripMenuItem.Name = "nuevoJugadorToolStripMenuItem";
-            this.nuevoJugadorToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            this.nuevoJugadorToolStripMenuItem.Text = "Nuevo Jugador";
-            this.nuevoJugadorToolStripMenuItem.Click += new System.EventHandler(this.nuevoJugadorToolStripMenuItem_Click);
+            this.nuevoToolStripMenuItem1.Name = "nuevoToolStripMenuItem1";
+            this.nuevoToolStripMenuItem1.Size = new System.Drawing.Size(154, 26);
+            this.nuevoToolStripMenuItem1.Text = "Jugador";
+            this.nuevoToolStripMenuItem1.Click += new System.EventHandler(this.nuevoToolStripMenuItem1_Click_1);
             // 
-            // rEPORTEToolStripMenuItem
+            // editarToolStripMenuItem
             // 
-            this.rEPORTEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vERREPORTEToolStripMenuItem});
-            this.rEPORTEToolStripMenuItem.Name = "rEPORTEToolStripMenuItem";
-            this.rEPORTEToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
-            this.rEPORTEToolStripMenuItem.Text = "REPORTE";
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.editarToolStripMenuItem.Text = "Editar";
             // 
-            // vERREPORTEToolStripMenuItem
+            // consultarToolStripMenuItem
             // 
-            this.vERREPORTEToolStripMenuItem.Name = "vERREPORTEToolStripMenuItem";
-            this.vERREPORTEToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
-            this.vERREPORTEToolStripMenuItem.Text = "VER REPORTE";
-            this.vERREPORTEToolStripMenuItem.Click += new System.EventHandler(this.vERREPORTEToolStripMenuItem_Click);
+            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.consultarToolStripMenuItem.Text = "Consultar";
+            this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click_1);
+            // 
+            // partidosToolStripMenuItem
+            // 
+            this.partidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoToolStripMenuItem,
+            this.estadisticasToolStripMenuItem,
+            this.reporteToolStripMenuItem});
+            this.partidosToolStripMenuItem.Name = "partidosToolStripMenuItem";
+            this.partidosToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.partidosToolStripMenuItem.Text = "Partidos";
+            // 
+            // nuevoToolStripMenuItem
+            // 
+            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
+            this.nuevoToolStripMenuItem.Text = "PartidoEliminarDespues";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click_1);
+            // 
+            // estadisticasToolStripMenuItem
+            // 
+            this.estadisticasToolStripMenuItem.Name = "estadisticasToolStripMenuItem";
+            this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
+            this.estadisticasToolStripMenuItem.Text = "Partido";
+            this.estadisticasToolStripMenuItem.Click += new System.EventHandler(this.estadisticasToolStripMenuItem_Click_1);
+            // 
+            // reporteToolStripMenuItem
+            // 
+            this.reporteToolStripMenuItem.Name = "reporteToolStripMenuItem";
+            this.reporteToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
+            this.reporteToolStripMenuItem.Text = "Reporte";
+            this.reporteToolStripMenuItem.Click += new System.EventHandler(this.reporteToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(282, 142);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 28);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 168);
-            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.Size = new System.Drawing.Size(800, 332);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 361);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "FormPrincipal";
             this.Text = "FormPrincipal";
-            this.Load += new System.EventHandler(this.FormPrincipal_Load);
-            this.contextMenuStrip2.ResumeLayout(false);
-            this.contextMenuStrip3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -181,19 +170,17 @@
 
         #endregion
 
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem partidoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoPartidoToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
-        private System.Windows.Forms.ToolStripMenuItem partidoToolStripMenuItem1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem partidoToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem nuevoPartidoToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem jugadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoJugadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rEPORTEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vERREPORTEToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem ayudaToolStripMenuItem;
+        private ToolStripMenuItem salirToolStripMenuItem;
+        private ToolStripMenuItem jugadoresToolStripMenuItem;
+        private ToolStripMenuItem partidosToolStripMenuItem;
+        private ToolStripMenuItem nuevoToolStripMenuItem;
+        private PictureBox pictureBox1;
+        private ToolStripMenuItem estadisticasToolStripMenuItem;
+        private ToolStripMenuItem nuevoToolStripMenuItem1;
+        private ToolStripMenuItem reporteToolStripMenuItem;
+        private ToolStripMenuItem editarToolStripMenuItem;
+        private ToolStripMenuItem consultarToolStripMenuItem;
     }
 }
